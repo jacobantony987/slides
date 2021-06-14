@@ -1,0 +1,71 @@
+\documentclass{beamer}
+
+\usepackage{caption,subcaption}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes.geometric,arrows,arrows.meta,decorations.pathreplacing,bending}
+
+\title{Differential Geometry}
+\author{Module II}
+\institute{Chapter 8 : Parallel Transport}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Covariant Derivative $\mathbf{X}$'}
+\begin{itemize}
+	\item $n$-surface $S$ (with Orientation $\mathbf{N}$)\ddag\footnote{$\mathbf{X}'$ is independent of the choice of orientation $\mathbf{N}$}
+	\item parametrised curve $\alpha$ in surface $S$, $\alpha : I \to S$
+	\item smooth vector field $\mathbf{X}$ along $\alpha$, tangent to $S$, $\mathbf{X}(\alpha(t)) \in S_{\alpha(t)}$
+	\item Derivative $\dot{\mathbf{X}} = \left(\alpha(t),\dfrac{d}{dt}X(t)\right)$
+	\item But, $\dot{\mathbf{X}}(\alpha) \notin S_{\alpha(t)}$
+\end{itemize}
+\begin{definition}[Covariant Derivative]
+	The orthogonal projection of the ordinary derivative $\dot{\mathbf{X}}$\\
+	$$\mathbf{X}'(t) = \dot{\mathbf{X}}(t)-\left[ \dot{\mathbf{X}}(t) \cdot \mathbf{N}(\alpha(t)) \right] \mathbf{N}(\alpha(t)) $$
+	Simply, the component of derivative $\dot{\mathbf{X}}$ in tangent space $S_{\alpha(t)}$.\\
+	Clearly, $\mathbf{X}'(t) \in S_{\alpha(t)},\ \forall t \in I$
+\end{definition}
+\end{frame}
+
+\begin{frame}{Properties}
+	We have, $\dot{\mathbf{X}} = \mathbf{X}'+(\dot{\mathbf{X}} \cdot \dot{(\mathbf{N} \circ \alpha)}\mathbf{N} \circ \alpha$
+\begin{block}{Properties of Covariant Derivative}
+\begin{itemize}
+	\item $(\mathbf{X}+\mathbf{Y})' = \mathbf{X}' + \mathbf{Y}'$
+	\item $(f\mathbf{X})' = f'\mathbf{X} + f\mathbf{X}'$
+	\item $(\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}'$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Euclidean vs Levi-Civita Parallel}
+\begin{itemize}
+	\item $n$-surface $S$
+	\item Parametrised curve $\alpha$
+	\item Smooth Vector Field $\mathbf{X}$ along $\alpha$
+\end{itemize}
+\begin{definition}[Parallel]
+\begin{itemize}
+	\item $\mathbf{X}$ is Euclidean Parallel along $\alpha$ if $\dot{\mathbf{X}} = \mathbf{0}$
+	\begin{itemize}
+		\item All the assigned vectors are parallel
+		\item $\mathbf{X}(\alpha(t)) = (\alpha(t),1,2)$
+	\end{itemize}
+	\item $\mathbf{X}$ is (Levi-Civita) Parallel along $\alpha$ if $\mathbf{X}' = \mathbf{0}$
+	\begin{itemize}
+		\item From the surface, all the assigned vectors looks parallel
+	\end{itemize}
+\end{itemize}
+\end{definition}
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}

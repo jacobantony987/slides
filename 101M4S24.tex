@@ -1,0 +1,440 @@
+\documentclass{beamer}
+
+\newcommand{\subgroup}{\le}
+\newcommand{\subfield}{\le}
+\newcommand{\isomorphism}{\simeq}
+
+%Text Books : \cite{fraleigh}
+%Module 1
+%Direct products and finitely generated Abelian groups, fundamental theorem, Applications
+%Factor groups, Fundamental homomorphism theorem, normal subgroups and inner automorphisms.
+%Group action on a set, Isotropy subgroups, Applications of G- sets to counting.
+%(Part II – Sections 11, 14, 16 & 17) (25 hours)
+%Module 2
+%Isomorphism theorems, Sylow theorems , Applications of the Sylow theory.
+%(Part VII Sections 34, 36 & 37) (25 hours)
+%Module 3
+%Fermat’s and Euler Theorems, The field of quotients of an integral domain,
+%Rings of polynomials, Factorisation of polynomials over a field.
+%(Part IV – Sections 20, 21, 22 & 23) (20 hours)
+%Module 4
+%Non commutative examples, Homeomorphisms and factor rings, Prime and
+%Maximal Ideals
+%(Part V – Sections 24, 26 & 27) (20 hourStep 3 : $\psi$ is onto.
+\title{Abstract Algebra}
+\author{Module 4}
+\institute{Section 24 : Noncommutative Examples}
+
+\begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}{$M_n(F)$ : Ring of $n \times n$ Matrices}
+\begin{definition}
+\begin{itemize}
+	\item Set of all $n \times n$ matrices with entries in field $F$
+		\[ A_{n \times n} = (a_{ij})_{n \times n} = \begin{bmatrix} a_{11} & a_{12} & \cdots &  a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2}  & \cdots & a_{nn} \end{bmatrix} \]
+	\item Matrix Addition, $A + B = C$
+		\[ (a_{ij})_{n \times n} + (b_{ij})_{n \times n} = (c_{ij})_{n \times n} \text{ where }c_{ij} = a_{ij}+b_{ij} \]
+	\item Matrix Multiplication, $A\cdot B = C$
+		\[ (a_{ij})_{n \times n} \cdot (b_{ij})_{n \times n} = (c_{ij})_{n \times n} \text{ where } c_{ij} = \sum_{k=0}^n a_{ik}b_{kj} \]
+\end{itemize}
+\end{definition}
+\end{frame}
+
+\begin{frame}{$\langle M_n(F),+,\cdot \rangle$ : Noncommutative Ring with Unity}
+\alert{$\langle M_n(R),+,\cdot \rangle$ is well-defined only if $R$ is a ring.}
+\begin{enumerate}
+	\item Addition is associative
+		\[ A+(B+C) = (A+B)+C, \quad \forall A,B,C \in M_n(F)\]
+	\item Addition is commutative
+		\[ A + B = B+A,\quad \forall A,B \in M_n(F) \]
+	\item Existence of Additive Identity
+		\[ \text{Zero Matrix, }0 = (0)_{n \times n} \]
+		\[ \text{Then, }A + 0 = A,\quad \forall A \in M_n(F) \]
+	\item Existence of Inverse Matrices
+		\[ A \in M_n(F), \text{ Inverse } A' = (-a_{ij})_{n \times n} \]
+		\[ \text{Then, } A + A' = 0 \]
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{$\langle M_n(F),+,\cdot \rangle$ : Noncommutative Ring with Unity}
+\begin{enumerate}
+	\setcounter{enumi}{4}
+	\item Multiplication is associative
+		\[ A \cdot (B \cdot C) = (A \cdot B)\cdot C, \quad \forall A,B,C \in M_n(F) \]
+	\item Multiplication is distributive over Addition
+		\[ A\cdot(B+C) = A\cdot B+ A \cdot C, \quad \forall A,B,C \in M_n(F) \]
+		\[ (B+C)\cdot A = B\cdot A+ C \cdot A, \quad \forall A,B,C \in M_n(F) \]
+	\item Existence of Multiplicative Identity, Unity
+		\[ \text{Identity Matrix, }I = (\delta_{ij})_{n \times n} \]
+		\[ \text{Then, } A \cdot I = A = I \cdot A, \quad \forall A \in M_n(F) \]
+	\item Multiplication is non-commutative
+		\[ AB \ne BA, \quad \forall A,B \in M_n(F) \]
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{$End(A)$ : Endomorphism of $A$}
+\begin{itemize}
+	\item $\langle A,\ast \rangle $ : Abelian Group
+	\item $End(A)$ : set of all homomorphisms from $A$ into $A$
+		\[ \phi \in End(A),\text{ Then } \phi(xy) = \phi(x)\phi(y) \]
+	\item Function Addition
+		\[ (\phi + \psi)(x) = \phi(x) + \psi(x), \quad \forall \phi,\psi \in End(A) \]
+	\item Function Composition
+		\[ (\phi \cdot \psi)(x) = \phi \circ \psi(x) = \phi(\psi(x)), \quad \forall \phi,\psi \in End(A) \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{$End(A)$ : Noncommutative Ring}
+	\alert{$\langle End(A),+,\circ \rangle$ is well-defined only if $A$ is an abelian group.} \\
+
+	Let $\theta, \phi, \psi \in End(A),\ x \in A$
+\begin{enumerate}
+	\item Addition is associative\\
+	\begin{align*}
+		(\theta + (\phi + \psi))(x) & = \theta(x) + (\phi+\psi)(x) \\
+		& = \theta(x) + (\phi(x) + \psi(x)) \\
+		& = (\theta(x) + \phi(x))+ \psi(x) \\
+		& = ((\theta + \phi) + \psi) (x)
+	\end{align*}
+	\item Addition is commutative
+	\begin{align*}
+		(\phi+\psi)(x) & = \phi(x) + \psi(x) \\
+		& = \psi(x) + \phi(x) \\
+		& = (\psi+\phi)(x)
+	\end{align*}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{$End(A)$ : Noncommutative Ring}
+\begin{enumerate}
+	\setcounter{enumi}{2}
+	\item Existence of Additive Identity\\
+		Consider, the trivial homomorphism $0$. Then $0 \in End(A)$.
+	\begin{align*}
+		(\phi + 0)(x) & = \phi(x) + 0(x) \\
+		& = \phi(x) + e, \quad \because 0(x) = e,\ \forall x \in A\\
+		& = \phi(x)
+	\end{align*}
+	\item Existence of Additive Inverses\\
+	Let $\phi \in End(A)$.\\
+	Consider $\phi' : A \to A$ defined by $\phi'(x) = -\phi(x)$.
+	\begin{align*}
+		(\phi+\phi')(x) & = \phi(x) + \phi'(x) \\
+		& = \phi(x) + (-\phi(x)) \\
+		& = e \\
+		& = 0(x)
+	\end{align*}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{$End(A)$ : Noncommutative Ring}
+\begin{enumerate}
+	\setcounter{enumi}{4}
+	\item Multiplication is associative\\
+		Let $\theta, \phi, \psi \in End(A)$.
+		\begin{align*}
+			(\theta (\phi\psi))(x) & = \theta \circ \phi\psi(x) \\
+			& = \theta \circ \phi \circ \psi(x) \\
+			& = \theta\phi \circ \psi(x) \\
+			& = ((\theta\phi)\psi)(x)
+		\end{align*}
+	\item Multiplication is distributive over Addition
+	\begin{enumerate}
+		\item Multiplication is left-distributive over Addition
+		\begin{align*}
+			(\theta(\phi+\psi))(x) & = \theta \circ (\phi+\psi)(x) \\ 
+			& = \theta((\phi+\psi)(x)) \\
+			& = \theta(\phi(x) + \psi(x)) \\
+			& = \theta(\phi(x)) + \theta(\psi(x)) \\
+			& = \theta\phi(x) + \theta\psi(x)
+		\end{align*}
+	\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{$End(A)$ : Noncommutative Ring}
+\begin{enumerate}
+	\setcounter{enumi}{5}
+	\item Multiplication is distributive over Addition
+	\begin{enumerate}
+		\setcounter{enumii}{1}
+		\item Multiplication is right-distributive over Addition
+		\begin{align*}
+			((\phi+\psi)\theta)(x) & = (\phi+\psi) \circ \theta(x) \\ 
+			& = (\phi+\psi)(\theta(x)) \\
+			& = \phi(\theta(x)) + \psi(\theta(x)) \\
+			& = \phi\theta(x) + \psi\theta(x) 
+		\end{align*}
+	\end{enumerate}
+	\item Existence of Multiplicative Identity\\
+	Consider the identity map, $id : A \to A$. Then $id \in End(A)$.
+	\[ \phi id(x) = \phi(id(x)) = \phi(x) \]
+	\[ id \phi(x) = id(\phi(x)) = \phi(x) \]
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Examples : $End(\mathbb{Z}_m \times \mathbb{Z}_n)$}
+\begin{exampleblock}{$End(\mathbb{Z}_m \times \mathbb{Z}_n)$ is noncommutative}
+\begin{itemize}
+	\item abelian group $\mathbb{Z}_m \times \mathbb{Z}_n$
+	\item $\phi,\psi \in End(\mathbb{Z}_m \times \mathbb{Z}_n)$
+		\[ \phi(m,n) = (m+n,0) \] 
+		\[ \psi(m,n) = (n,0) \]
+	\item \alert{$\phi\psi\ne \psi\phi$.}
+	\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Examples : Weyl Algebra}
+\begin{exampleblock}{Weyl Algebra, $End(F[x])$ are noncommutative}
+\begin{itemize}
+	\item field of characteristic zero, $F$\\
+	\item abelian group, $F[x]$
+	\item $X,Y \in End(F[x])$
+	\[ X(a_0+a_1x+\cdots+a_nx^n) = a_0x+a_1x^2+\cdots+a_nx^{n+1} \]
+	\[ Y(a_0+a_1x+\cdots+a_nx^n) = a_1+2a_2x+\cdots+na_nx^{n-1} \]
+	\item \alert{$XY \ne YX$.}
+	\item \textbf{Weyl Algebra} : The subring of $End(F[x])$ generated by $X$, $Y$
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Summary : $\langle End(A),+,\circ \rangle$}
+\begin{block}{$\langle End(A),+,\circ \rangle$ is well-defined}
+\begin{enumerate}
+	\item $\phi, \psi \in End(A)$
+	\begin{enumerate}
+		\item $\phi : A \to A$ is well defined by $x \to \phi(x)$
+		\item $\phi : A \to A$ is a homomorphism ie, $\phi(xy)= \phi(x)\phi(y)$
+		\item $\psi : A \to A$ is well defined by $x \to \psi(x)$
+		\item $\psi : A \to A$ is a homomorphism ie, $\psi(xy)= \psi(x)\psi(y)$
+	\end{enumerate}
+	\item $\phi+\psi \in End(A)$
+	\begin{enumerate}
+		\item $\phi+\psi : A \to A$ is well-defined by $x \to \phi(x)+\psi(x)$
+	\end{enumerate}
+	\item $\phi+\psi \in End(A)$
+	\begin{enumerate}
+		\item $\phi\circ\psi : A \to A$ is well-defined by $x \to \phi(\psi(x))$
+	\end{enumerate}
+\end{enumerate}
+\end{block}
+\begin{block}{$\langle End(A),+,\circ \rangle$ is non-commutative ring with unity}
+\begin{enumerate}
+	\item Additive Identity, $0$ = Trivial Homomorphism, $x \to e$
+	\item Multiplicative Identity/Unity, $1 = id_A$ (Identity Map), $x \to x$
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Group Ring, $RG$}
+\begin{block}{The set of all formal sums, $RG$}
+\begin{itemize}
+	\item $\langle G,\cdot \rangle$ be a multiplicative group
+	\item $\langle R,+,\times \rangle$ be commutative ring with nonzero unity
+	\item Elements of $RG$ are of the form $\sum_{i \in I} a_ig_i$\\
+		where $a_i \in R$, $g_i \in G$ and all except finite $a_i$ are zero.
+\end{itemize}
+\end{block}
+	\begin{exampleblock}{Example : $\mathbb{Z}_6S_3$}
+	\begin{itemize}
+		\item $\langle \mathbb{Z}_6,+_6,\times_6 \rangle$ is a ring (but not an integral domain)
+		\item $\langle S_3, \circ \rangle$ is a symmetric group of permutations of $\{ 1,2,3\}$
+		\item Let $ x = 2\mu_1 + 0\mu_2 + 1\mu_3 + 2\rho_0 + 5\rho_1 + 2\rho_2$
+		\item Clearly, $x \in \mathbb{Z}_6S_3$
+	\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Group Ring, $RG$}
+\begin{block}{Group Ring, $RG$ is an Abelian group}
+\begin{itemize}
+	\item Set $RG = \big\{ \sum_{i \in I} a_ig_i : a_i \in R,\ g_i \in G \big\}$\\
+		where all expect finte $a_i$ are zero
+	\item Addition in $RG$
+		$$ \sum_{i \in I}a_ig_i + \sum_{i \in I} b_i g_i  = \sum_{i \in I} (a_i+b_i)g_i $$
+	\item Addition is closed (since ring addition is closed)
+	\item Addition is commutative (since ring addition is commutative)
+	\item Addition is associative (since ring addition is associative)
+	\item Additive Identity, $0 = \sum_{i \in I} 0g_i$
+	\item Additive Inverse of $\sum_{i \in I} a_ig_i$ is $\sum_{i \in I} (-a_i)g_i$\\
+		where $(-a_i)$ are the additive inverses of $a_i$ in the ring $R$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Group Ring, $RG$}
+\begin{block}{Multiplication in $RG$}
+	$$ \sum_{i \in I} a_ig_i \sum_{i \in I} b_ig_i = \sum_{i \in I} \left( \sum_{g_jg_k = g_i} a_jb_k \right) g_i $$
+\end{block}
+\begin{exampleblock}{Example : $\mathbb{Z}_6S_3$}
+\begin{itemize}
+	\item $x = 2\mu_1 + 0\mu_2 + 1\mu_3 + 2\rho_0 + 5\rho_1 + 2\rho_2$
+	\item $y = 4\mu_1 + 2\mu_2 + 3\mu_3 + 2\rho_0 + 2\rho_1 + 0\rho_2$
+	\item $xy = 1\mu_1 + 2\mu_2 + 0\mu_3 + 1\rho_0 + 4\rho_1 + 4\rho_2$ (by SageMath)
+\end{itemize}
+\end{exampleblock}
+{\scriptsize
+	$$\rho_1\mu_1 = (2,3)(1,2,3) = (1,3,2) = \mu_2 \qquad \begin{matrix}
+	       & \rho_0 & \rho_1 & \rho_2 & \mu_1  & \mu_2  & \mu_3  \\	
+	\rho_0 & \rho_0 & \rho_1 & \rho_2 & \mu_1  & \mu_2  & \mu_3  \\
+	\rho_1 & \rho_1 & \rho_2 & \rho_0 & \mu_3  & \mu_1  & \mu_2  \\
+	\rho_2 & \rho_2 & \rho_0 & \rho_1 & \mu_2  & \mu_3  & \mu_1  \\
+	\mu_1  & \mu_1  & {\color{red}\mu_2}  & \mu_3  & \rho_0 & \rho_1 & \rho_2 \\
+	\mu_2  & \mu_2  & \mu_3  & \mu_1  & \rho_2 & \rho_0 & \rho_1 \\
+	\mu_3  & \mu_3  & \mu_1  & \mu_2  & \rho_1 & \rho_2 & \rho_0 
+\end{matrix}$$
+	}
+\end{frame}
+
+\begin{frame}{Computation in $\mathbb{Z}_6S_3$: by Hand}
+\begin{itemize}
+	\item $x = 2\mu_1 + 0\mu_2 + 1\mu_3 + 2\rho_0 + 5\rho_1 + 2\rho_2$
+	\item $y = 4\mu_1 + 2\mu_2 + 3\mu_3 + 2\rho_0 + 2\rho_1 + 0\rho_2$
+\end{itemize}
+\begin{align*}
+	xy = & 2\onslide<1>{\mu_1\mu_1}\onslide<2>{\rho_0} + 4\onslide<1>{\mu_1\mu_2}\onslide<2>{\rho_2} + 4\mu_1\onslide<1>{\rho_0}+4\onslide<1>{\mu_1\rho_1}\onslide<2>{\mu_3} +  \\
+	     & 4\onslide<1>{\mu_3\mu_1}\onslide<2>{\rho_2} + 2\onslide<1>{\mu_3\mu_2}\onslide<2>{\rho_1} + 3\onslide<1>{\mu_3\mu_3}\onslide<2>{\rho_0} + 2\mu_3\onslide<1>{\rho_0} + 2\onslide<1>{\mu_3\rho_1}\onslide<2>{\mu_2} + \\
+	     & 2\onslide<1>{\rho_0}\mu_1 + 4\onslide<1>{\rho_0}\mu_2 + 4\onslide<1>{\rho_0}\rho_0 + 4\onslide<1>{\rho_0}\rho_1 + \\
+	     & 2\onslide<1>{\rho_1\mu_1}\onslide<2>{\mu_2} + 4\onslide<1>{\rho_1\mu_2}\onslide<2>{\mu_3} + 3\onslide<1>{\rho_1\mu_3}\onslide<2>{\mu_1} + 4\rho_1\onslide<1>{\rho_0} + 4\onslide<1>{\rho_1\rho_1}\onslide<2>{\rho_2}+\\
+	     & 2\onslide<1>{\rho_2\mu_1}\onslide<2>{\mu_3} + 4\onslide<1>{\rho_2\mu_2}\onslide<2>{\mu_1} + 4\rho_2\onslide<1>{\rho_0} + 4\onslide<1>{\rho_2\rho_1}\onslide<2>{\rho_0} \\
+	= & 1\mu_1 + 2\mu_2 + 0\mu_3 + 1\rho_0 + 4\rho_1 + 4\rho_2 
+\end{align*}
+\end{frame}
+\begin{frame}{Group Ring, $RG$}
+\begin{block}{$\langle RG,+,\times \rangle$ is a ring - Group Ring}
+	$$RG = \bigg\{ \sum_{i \in I} a_i g_i : a_i \in R,\ g_i \in G \bigg\}$$
+	$$\sum_{i \in I} a_i g_i + \sum_{i \in I} b_i g_i = \sum_{i \in I} (a_i +b_i)g_i$$
+	$$\sum_{i \in I} a_i g_i \times \sum_{i \in I} b_i g_i = \sum_{i \in I} \left( \sum_{g_jg_k = g_i} a_jb_k \right) g_i $$
+\begin{itemize}
+	\item multiplication is associative $x (yz) = (xy)z$
+	\item multiplication is distributive over addition
+	\begin{enumerate}
+		\item left distributive, $x(y+z) = xy+xz$
+		\item right distributive, $(x+y)z = xz+yz$
+	\end{enumerate}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Complex Field}
+\begin{block}{Complex Numbers}
+\begin{itemize}
+	\item $\mathbb{C} = \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+	\begin{itemize}
+		\item $(1,0) = 1$ and $(0,1) = i$
+		\item $(u,v) = u(1,0)+v(0,1) = u+iv$
+	\end{itemize}
+	\item Addition Operation (usual)\\
+		$(a_1,a_2) + (b_1,b_2) = (a_1+b_1,a_2+b_2)$
+	\item Multiplicaiton Operation (complicated ?)\\
+		$(a_1,a_2) \times (b_1,b_2) = (a_1b_1-a_2b_2,a_1b_2+a_2b_1)$
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}{Complex Numbers}
+\begin{block}{Multiplication in $\mathbb{R}^2$}
+\begin{itemize}
+	\item No candidates for usual multiplication.
+	\item Multiplicaiton Operation (expectation)\\
+		$(a_1+a_2i) \times (b_1+b_2i) = a_1b_1+a_1b_2i+a_2ib_1+a_2ib_2i$
+	\item Assuming some commutativity and preserving unity $1$. \\
+		$(a_1+a_2i) \times (b_1+b_2i) = (a_1b_1+a_2b_2{\color{red}i^2}) + (a_1b_2+a_2b_1)i$\\
+	\item $(u,v) = u+iv$ where $i^2 = -1$
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}{Quaternions - $\langle \mathbb{H},+,\cdot \rangle$}
+\begin{itemize}
+	\item $\mathbb{H} = \mathbb{R} \times \mathbb{R} \times \mathbb{R} \times \mathbb{R} = \mathbb{R}^4$
+	\begin{itemize}
+		\item $(u,v,w,x) = u+vi+wj+xk$
+		\item $i^2 = j^2= k^2 = -1$
+		\item $ijk = -1$
+			\begin{itemize}
+				\item $i{\color{red}jk} = j{\color{red}ki} = k{\color{red}ij} = -1$
+				\item $i{\color{red}kj} = j{\color{red}ik} = k{\color{red}ji} = 1$
+				\item $ij = -ji$
+			\end{itemize}
+	\end{itemize}
+	\item Addition Operation (usual)\\
+		\only<1>{ $(a_1,a_2,a_3,a_4) + (b_1,b_2,b_3,b_4) =$ \\
+			\hspace{1in} $(a_1+b_1,a_2+b_2,a_3+b_3,a_4+b_4)$}
+		\only<2-3>{ $(a_1+a_2i+a_3j+a_4k) + (b_1+b_2i+b_3j+b_4k) =$\\
+			\hspace{0.2in} $(a_1+b_1) + (a_2+b_2)i + (a_3+b_3)j + (a_4+b_4)k$}
+	\item Multiplication Operation (simlified)\\
+		\only<1>{ $(a_1,a_2,a_3,a_4) \times (b_1,b_2,b_3,b_4) = (a_1b_1-a_2b_2-a_3b_3-a_4b_4,$\\
+			\hspace{0.2in} $a_1b_2+a_2b_1+a_3b_4-a_4b_3, a_1b_3-a_2b_4+a_3b_1+a_4b_2,$\\
+			\hspace{0.2in} $a_1b_4+a_2b_3-a_3b_2+a_4b_1)$}
+		\only<2>{ $(a_1+a_2i+a_3j+a_4k) \times (b_1+b_2i+b_3j+b_4k) = $\\
+			\hspace{1in} $a_1b_1  + a_1b_2i  + a_1b_3j  + a_1b_4k  +$\\
+			\hspace{1in} $a_2b_1i + a_2b_2i^2+ a_2b_3ij + a_2b_4ik +$\\
+			\hspace{1in} $a_3b_1j + a_3b_2ji + a_3b_3j^2+ a_3b_4jk  +$\\
+			\hspace{1in} $a_4b_1k + a_4b_2ki + a_4b_3kj + a_4b_4k^2$ }
+		\only<3>{ $(a_1+a_2i+a_3j+a_4k) \times (b_1+b_2i+b_3j+b_4k) = $\\
+			\hspace{1in} $a_1b_1  + a_1b_2i + a_1b_3j + a_1b_4k +$\\
+			\hspace{1in} $a_2b_1i - a_2b_2  + a_2b_3k - a_2b_4j +$\\
+			\hspace{1in} $a_3b_1j - a_3b_2k - a_3b_3  + a_3b_4i +$\\
+			\hspace{1in} $a_4b_1k + a_4b_2j - a_4b_3i - a_4b_4 $ }
+		\item<4> Additive Identity, $0 = (0,0,0,0)$
+		\item<4> Multiplicative Identity, $1 = (1,0,0,0)$
+		\item<4> Additive Inverse of $(a_1,a_2,a_3,a_4) = (-a_1,-a_2,-a_3,-a_4)$
+		\item<4> Multiplicative Inverse of $(a_1,a_2,a_3,a_4)$
+		$$\left(\frac{a_1}{|a|^2},\frac{-a_2}{|a|^2},\frac{-a_3}{|a|^2},\frac{-a_4}{|a|^2}\right) \text{ where } |a|^2 = a_1^2+a_2^2+a_3^2+ a_4^2$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{$\mathbb{H}$ is a subring of $M_2(\mathbb{C})$}
+\begin{block}{Ring Homomorphism}
+	$$ \phi : \mathbb{H} \to M_2(\mathbb{C}) \text{ defined by } \phi(a,b,c,d) = \begin{bmatrix} a+bi & c+di \\ -c+di & a-bi \end{bmatrix}$$
+	$$\phi\left( (a,b,c,d) + (e,f,g,h) \right) = \phi\left(a,b,c,d)\right) + \phi\left(e,f,g,h)\right)$$
+	$$\phi\left( (a,b,c,d) \times (e,f,g,h) \right) = \phi\left(a,b,c,d)\right) \times \phi\left(e,f,g,h)\right)$$
+\end{block}
+\begin{block}{Different Form}
+	$$ \phi(a,b,c,d) = a\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} + b\begin{bmatrix}i & 0 \\ 0 & -i \end{bmatrix} + c\begin{bmatrix}0 & 1 \\ -1 & 0 \end{bmatrix} + d\begin{bmatrix}0 & i \\ i & 0 \end{bmatrix}$$
+\end{block}
+\end{frame}
+
+\begin{frame}{$\phi$ preserves multiplication}
+	$$ \phi(a,b,c,d) = a\only<1>{\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}}\only<2>{A} + b\only<1>{\begin{bmatrix}i & 0 \\ 0 & -i \end{bmatrix}}\only<2>{B} + c\only<1>{\begin{bmatrix}0 & 1 \\ -1 & 0 \end{bmatrix}}\only<2>{C} + d\only<1>{\begin{bmatrix}0 & i \\ i & 0 \end{bmatrix}}\only<2>{D}$$
+
+\begin{itemize}
+	\item<1-> $\phi(i)^2 = \phi(j)^2 = \phi(k)^2 = \phi(-1) = -1 \phi(1)$
+	\item<2> $B^2 = C^2 = D^2 = -1A$
+	\item<1-> $\phi(i)=\phi(jk) = \phi(j)\phi(k)$
+	\item<2> $B = CD$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Strictly Skew Field $\langle \mathbb{H},+,\cdot \rangle$}
+\begin{enumerate}
+	\item $\mathbb{H} = \mathbb{R} \times \mathbb{R} \times \mathbb{R} \times \mathbb{R}$
+	\item Usual Addition
+	\begin{enumerate}
+		\item Addition is Associative
+		\item Addition is Commutative
+		\item Additive Identity $(0,0,0,0) = 0+0i+0j+0k$
+		\item Additive Inverse of $(a,b,c,d)$ is $(-a,-b,-c,-d)$
+	\end{enumerate}
+	\item Multiplication
+	\begin{enumerate}
+		\item Multiplication is associative since $\mathbb{H} \le M_2(\mathbb{C})$
+		\item {\color{red}Multiplication is not commutative $ij \ne ji$ }\\
+			 ie, $(0,1,0,0)(0,0,1,0) \ne (0,0,1,0)(0,1,0,0)$
+		\item Multiplication Identity, Unity $(1,0,0,0) = 1+0i+0j+0k$
+		\item Multiplicative Inverse of $(a,b,c,d)$ is $\left( \frac{a}{m},-\frac{b}{m},-\frac{c}{m},-\frac{d}{m}\right)$\\
+			 where $m = a^2+b^2+c^2+d^2$
+	\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Next Topic  : Wedderburn's Theorem}
+\begin{theorem}[Wedderburn]
+Every finite division ring is a field.
+\end{theorem}
+\end{frame}
+
+\end{document}

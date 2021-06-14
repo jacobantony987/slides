@@ -1,0 +1,438 @@
+\documentclass{beamer}
+\usepackage{pgf,tikz}
+
+\newcommand{\subgroup}{\le}
+\newcommand{\subring}{\le}
+\newcommand{\subfield}{\le}
+\newcommand{\isomorphism}{\simeq}
+
+%Text Books : \cite{fraleigh}
+%Module 1
+%Direct products and finitely generated Abelian groups, fundamental theorem, Applications
+%Factor groups, Fundamental homomorphism theorem, normal subgroups and inner automorphisms.
+%Group action on a set, Isotropy subgroups, Applications of G- sets to counting.
+%(Part II – Sections 11, 14, 16 & 17) (25 hours)
+%Module 2
+%Isomorphism theorems, Sylow theorems , Applications of the Sylow theory.
+%(Part VII Sections 34, 36 & 37) (25 hours)
+%Module 3
+%Fermat’s and Euler Theorems, The field of quotients of an integral domain,
+%Rings of polynomials, Factorisation of polynomials over a field.
+%(Part IV – Sections 20, 21, 22 & 23) (20 hours)
+%Module 4
+%Non commutative examples, Homeomorphisms and factor rings, Prime and
+%Maximal Ideals
+%(Part V – Sections 24, 26 & 27) (20 hourStep 3 : $\psi$ is onto.
+\title{Abstract Algebra}
+\author{Module 4}
+
+\institute{Section 27 : Prime and Maximal Ideals}
+
+\begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}{Ring vs Factor Ring}
+\begin{itemize}
+	\item Ring may have \textbf{stronger} as well as \textbf{weaker} algebraic structure compared to its Factor Ring.
+	\begin{itemize}
+		\item $\mathbb{Z}/p\mathbb{Z}$ is a Field. But, $\mathbb{Z}$ is not a Field.
+		\item $\mathbb{Z}/6\mathbb{Z}$ is not an Integral Domain. But, $\mathbb{Z}$ is an Integral Domain.
+	\end{itemize}
+	\item Every ring $R$ has two ideals,
+	\begin{itemize}
+		\item Improper Ideal $R$
+		\item Trivial Ideal $\{0\}$
+	\end{itemize}
+\end{itemize}
+
+\begin{definition}[Ideal]
+	A subgroup of a ring $R$ is an ideal if $rN \subset N\ \&\ Nr \subset N,\ \forall r \in R$.
+\end{definition}
+
+\begin{definition}[Unit]
+	Unit is an element which has multiplicative inverse.
+\end{definition}
+
+\end{frame}
+
+\begin{frame}{Ideal with Unit}
+\begin{theorem}[Ideal with Unit]
+	Let $N$ be an ideal of ring $R$. Let $u$ be a unit in $N$.
+	Then $N = R$.
+\end{theorem}
+\begin{proof}
+	$N \underset{ideal}{\subgroup} R \implies \forall r \in R,\ rN \subset N$\\
+	Unit, $u \in N \implies \exists u^{-1} \in R,\ u^{-1}u = 1 \in N$\\
+	$r \in R,\ 1 \in N \implies r1 = r \in N$
+\end{proof}
+\begin{corollary}
+	A field contains no proper, nontrivial ideals.
+\end{corollary}
+\end{frame}
+
+\begin{frame}{Maximal Ideal, Prime Ideal}
+\begin{definition}[Maximal Ideal]
+	A proper ideal which is not contained in any other proper ideal.
+\end{definition}
+\begin{exampleblock}{$p\mathbb{Z} \subset \mathbb{Z}$}
+	Let $p$ be a prime. Then $p\mathbb{Z}$ is a maximal ideal of $\mathbb{Z}$ (Why ?)
+\end{exampleblock}
+\begin{definition}[Prime Ideal]
+	A proper  ideal $N$ is prime ideal if $ab \in N \implies a \in N \text{ or } b \in N$.
+\end{definition}
+\begin{exampleblock}{$\{ 0,2 \} \subset \mathbb{Z}_4$}
+$\{ 0,2 \}$ is a prime ideal of $\mathbb{Z}_4$ \\
+$ 0 = 0 \cdot x = x \cdot 0 = 2 \cdot 2$\\
+$ 2 = 1 \cdot 2 = 2 \cdot 1$ \\
+Remember that $1 = 1 \cdot 1 = 3 \cdot 3$\\
+Thus, prime ideal of $\mathbb{Z}_4$ containing $1$ should also contain $3$.
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Maximal Ideal characterisation of Field}
+\begin{theorem}
+	Let $R$ be a commutative Ring with unity.\\
+	$M$ is a maximal ideal of $R$ $\iff$ factor ring $R/M$ is a field
+\end{theorem}
+\begin{block}{Sufficient Part : Context}
+\begin{itemize}
+	\item Commutative Ring with unity $R$
+	\item Maximal ideal $M$
+	\begin{itemize}
+		\item Ideal $\implies \forall r \in R, rM \subset M,\ Mr \subset M$
+		\item Maximal $\implies M \subsetneq R$
+	\end{itemize}
+	\item $M$ is an ideal of $R \implies R/M$ is commutative ring with unity.
+	\item $M$ is maximal  $\implies R/M$ is non-zero ie, $R/M \ne \{ 0+M \}$
+	\item $R/M \ne \{ 0+M \} \implies {\color{red} \exists (a + M) \in R/M,\ (a+M) \ne (0+M)}$ That is, $a \notin M$ and  $a+M$ is not the additive identity of $R/M$
+	\item $(a+M) \in R/M$ has multiplicative inverse $\implies R/M$ is a field
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : Characterisation of Field}
+\begin{block}{Sufficient Part}
+\begin{itemize}
+	\item Suppose $a+M$ doesn't have multiplicative inverse in $R/M$
+	\item $(R/M)(a+M) = \{ (r+M)(a+M) : (r+M) \in R/M \}$
+\begin{itemize}
+	\item $x \in (R/M)(a+M) \implies x = (r+M)(a+M),\ r+M \in R/M$
+\end{itemize}
+	\item Claim : $(1+M) \notin (R/M)(a+M)$
+\begin{itemize}
+	\item Suppose $(1+M) \in (R/M)(a+M)$
+	\item $\exists (b+M) \in R/M$ such that $(b+M)(a+M) = (1+M)$
+	\item $ba = ab = 1$ is a contradiction.
+\end{itemize}
+	\item $(R/M)(a+M)$ is non-trivial, proper ideal of $R/M$
+\begin{itemize}
+	\item $(a+M) = (1+M)(a+M) \in (R/M)(a+M) \implies $ non-trivial
+	\item $(1+M) \notin (R/M)(a+M) \implies$ proper
+\end{itemize}
+	\item  Canonical Homomorphism, $\gamma : R \to R/M,\ \gamma(a) = a+M$
+\begin{itemize}
+	\item $\ker(\gamma) = M \implies M \subset \gamma^{-1}[(R/M)(a+M)]$
+	\item $\gamma^{-1}[(R/M)(a+M)]$ is a proper, ideal of $R$ containing $M$
+\end{itemize}
+	contradicts $M$ is maximal ideal in $R$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : Characterisation of Field}
+\begin{block}{Necessary Part}
+\begin{itemize}
+	\item $M$ is ideal of $R$
+	\item Suppose $R/M$ is a field.
+	\item Suppose $M$ is not Maximal ideal of $R$\\
+		$\exists \text{ proper, ideal }N$ containing $M$, ie, $N \subset M \subset R$
+	\item Canonical Homomorphism, $\gamma : R \to R/M,\ \gamma(a) = a+M$
+	\item $\gamma[N]$ is a proper, non-trivial ideal of $R/M$
+	\begin{itemize}
+		\item $\gamma[M] = \{ 0+M \} \subset \gamma[N] \implies $ non-trivial
+		\item $N \ne R \implies \exists b \in R$ such that $b \notin N,\ \gamma(b) = (b+M) \notin \gamma[N] \implies$ proper
+	\end{itemize}
+	is a contradiction since $R/M$ is a field.\\
+		\textbf{A field contains no proper, non-trivial ideal.}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Ideal characterisation of Field}
+\begin{corollary}
+	A commutative ring with unity is a field if and only if it has no proper, non-trivial ideals.
+\end{corollary}
+\begin{block}{Sufficient Part}
+\begin{itemize}
+	\item Commutative ring unit unity, $R$
+	\item Suppose $R$ is a field.
+	\item $R$ has no proper, non-trivial ideal.
+\end{itemize}
+\end{block}
+\begin{block}{Necessary Part}
+\begin{itemize}
+	\item Commutative ring unit unity, $R$
+	\item Suppose $R$ has no proper, non-trivial ideal.
+	\item Maximal ideal $\{ 0 \}$
+	\item $R/\{ 0 \} \simeq R $ is a field
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Prime Ideal characterisation of Integral Domain}
+\begin{theorem}
+\begin{itemize}
+	\item Commutative Ring $R$ with unity
+	\item Proper ideal of $R$, $N \ne R$
+	\item $N$ is prime ideal $\iff$ factor ring $R/N$ is integral domain
+\end{itemize}
+\end{theorem}
+\begin{proof}
+	$$(a+N)(b+N) = ab + N = 0 + N \iff ab \in N$$
+\begin{itemize}
+	\item $R/N$ Prime Ideal,  
+		$ab \in N \implies a \in N \text{ OR } b \in N$
+	$$a \in N \text{ OR } b \in N \iff a + N = N \text{ OR } b+N = N$$
+	\item Integral Domain (No zero Divisors), 
+		$(a+N)(b+N) = 0+N \implies (a+N) = N \text{ OR } (b+N) = N$
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Corollary}
+\begin{corollary}
+	Every maximal ideal in a commutative ring $R$ with unity is a prime ideal.
+\end{corollary}
+\begin{proof}
+	Suppose $M$ is an ideal of a commutative ring $R$ with unity
+\begin{itemize}
+	\item $M$ is maximal ideal of $R$
+	\item $\implies R/M$ is a field
+	\item $\implies R/M$ is an integral domain
+	\item $\implies M$ is a prime ideal
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Prime Field}
+\begin{block}{Results}
+\begin{enumerate}
+	\item For ring $R$ with unity 1, the function $\phi : \mathbb{Z} \to R$\\
+		\hspace{1em} defined by $\phi(n) = n \cdot 1$ is a ring homomorphism.
+	\item For ring $R$ with characteristic $n > 1$,\\
+		\hspace{5em} $R$ contains a subring isomorphic to  $\mathbb{Z}_n$
+	\item For ring $R$ with characteristic $0$,\\
+		\hspace{5em} $R$ contains a subring isomorphic to $\mathbb{Z}$
+	\item For field $F$ with prime characteristic $p$,\\
+		\hspace{5em} $F$ contains a subfield isomorphic to  $\mathbb{Z}_p$
+	\item For field $F$ with characteristic $0$,\\
+		\hspace{5em} $F$ contains a subfield isomorphic to $\mathbb{Q}$
+\end{enumerate}
+\end{block}
+\begin{definition}[Prime Field]
+	The fields $\mathbb{Z}_p$ and $\mathbb{Q}$ are prime fields. ({\color{blue} Why ?} Semester 2)
+\end{definition}
+\end{frame}
+
+\begin{frame}{Proof : Ring Homomorphism given by $\phi : \mathbb{Z} \to R$}
+\begin{proof}
+	Let $1$ be the unity of the Ring $R$ with Unity
+	\begin{align*}
+		\phi(n+m) & = (n+m) \cdot 1 
+		 = \underbrace{(1+1+\cdots+1)}_{\text{$n+m$ summands}} \\
+		& = \underbrace{(1+1+\cdots+1)}_{\text{$n$ summands}} + \underbrace{(1+1+\cdots+1)}_{\text{$m$ summands}} \\
+		& = (n \cdot 1)+(m \cdot 1) = \phi(n) + \phi(m)\\ \hline
+		\phi(n)\phi(m) & = (n \cdot 1)(m \cdot 1) \\
+		& = \underbrace{(1+1+\cdots+1)}_{\text{$n$ summands}} \underbrace{(1+1+\cdots+1)}_{\text{$m$ summands}} \\
+		& = \underbrace{(1+1+\cdots+1)}_{\text{$nm$ summands}} \\
+		& = (nm) \cdot 1 = \phi(nm)
+	\end{align*}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Proof: $\mathbb{Z}_n$ subring of Ring of Characteristic $n > 1$}
+\begin{itemize}
+	\item Suppose $R$ is
+	\begin{itemize}
+		\item a commutative ring with unity $1$ and 
+		\item characteristic $n$, ($n > 1$)
+	\end{itemize}
+	\item $\phi : \mathbb{Z} \to R,\ \phi(m) = m \cdot 1$ is a (ring) Homomorphism
+	\begin{itemize}
+		\item $\phi(1) = 1.1 = (1)$
+		\item $\phi(2) = 2 \cdot 1 = (1+1) $ \\
+		$\vdots$
+		\item $\phi(n-1) = (n-1) \cdot 1 = \underbrace{(1+1+\cdots+1)}_{\text{$n-1$ summands}}$
+		\item $\phi(n) = n \cdot 1 = \underbrace{(1+1+\cdots+1)}_{\text{$n$ summands}} = 0 {\color{red} = \phi(0)}$
+	\end{itemize}
+	\item {\color{blue}Kernel $\ker(\phi) = \{ \cdots,-2n,-n,0,n,2n,\cdots\} = n\mathbb{Z}$}
+	\item {\color{blue}For any $n>1$, $n\mathbb{Z}$ is an ideal of $\mathbb{Z}$.}
+	\begin{itemize}
+		\item $\phi : R' \to R$ is ring homomorphism $\iff \ker(\phi)$ is an ideal of $R$
+	\end{itemize}
+\item $\mathbb{Z}_n \underset{\text{congruence}}{\simeq} \mathbb{Z}/n\mathbb{Z} = \mathbb{Z}/\ker(\phi) \underset{\text{canonical}}{\simeq} \phi[\mathbb{Z}] \le R$
+\end{itemize}
+\end{frame}
+\begin{frame}{Proof: $\mathbb{Z}$ subring of Ring of Characteristic $0$ }
+\begin{itemize}
+	\item $R$ is a commutative ring with unity $1$ and characteristic $0$
+	\item $\phi : \mathbb{Z} \to R,\ \phi(n) = n \cdot 1$ is a ring homomorphism
+	\item Claim : $\ker(\phi) = \{ 0 \}$\\
+		Suppose kernel is nontrivial, there exists $m \in \ker(\phi),\ m \ne 0$\\
+		Then $m \in \ker(\phi) \implies \phi(m) = 0 \implies \text{ characteristic } \ne 0 $
+	\item $\mathbb{Z} \underset{\text{trivial}}{\simeq} \mathbb{Z}/\{0\} = \mathbb{Z}/\ker(\phi) \underset{\text{canonical}}{\simeq} \phi[\mathbb{Z}] \le R$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Proof: $\mathbb{Z}_p$ subfield of Field of Prime Characteristic $p$}
+\begin{itemize}
+	\item Field $F$ with characteristic $n$, ($n > 1$)
+	\item $\phi : \mathbb{Z} \to F$ is a homomorphism.
+	\item $\mathbb{Z}_n$ is a subring of $F$, $\mathbb{Z}_n \underset{\text{ring}}{\le} F$
+	\item Claim : $n$ is a prime.
+	\begin{itemize}
+		\item If $n$ is not a prime, then $n = ab, a>1,b>1$
+		\item $\implies \mathbb{Z}_n$ has zero divisors $a,b$
+		\item $\implies F$ has zero divisors $\phi(a),\phi(b)$
+	\end{itemize}
+	\item $\langle \mathbb{Z}_p,+_p,\times_p \rangle$ is a field
+	\item $\mathbb{Z}_p$ is a subfield of $F$, $\mathbb{Z}_p \underset{\text{field}}{\le} F$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Proof: $\mathbb{Q}$ subfield of Field of Characteristic $0$}
+\begin{itemize}
+	\item Field $F$ with characteristic $0$
+	\item $\mathbb{Z} \underset{\text{ring}}{\le} F$
+	\item $\mathbb{Z}$ is an integral domain
+	\item $\mathbb{Q}$ is the field of quotients of $\mathbb{Z}$ (refer : Fraleigh \S21)\\
+		The smallest field containing the integral domain
+	\item $\mathbb{Q} \underset{\text{field}}{\le} F$
+\end{itemize}
+\begin{block}{Field of characteristic $1$ ?}
+	Field of characteristics $1$ does not exists.\\
+	Characterstic $1 \implies 1 = 0$ is contradictory as $F = \{ 0 \}$\\
+	Thus smallest/trivial field is $Z_2 = \{ 0 ,1 \}$
+\end{block}
+\end{frame}
+
+\begin{frame}{Principal ideal}
+\begin{definition}[ideal generated by an element]
+	Let $R$ be a commutative ring with unity and $a \in R$. The ideal generated by $a$ is the set of all elements of the form $ra$ where $r \in R$.
+	$$ \langle a \rangle = \{ ra : r \in R \}$$
+\end{definition}
+\begin{center}\textbf{It is the smallest ideal containing $a$.}\end{center}
+\begin{definition}[Principal ideal]
+	An ideal with a generator
+\end{definition}
+\begin{exampleblock}{Ideals of $\mathbb{Z}$}
+	Every ideal of $\mathbb{Z}$ is a principal ideal.\\
+	An ideal of $\mathbb{Z}$ is of the form $n\mathbb{Z} = \langle n \rangle$
+\end{exampleblock}
+\begin{exampleblock}{Ideal $\langle x \rangle$ of $F[x]$}
+	$\langle x \rangle$ in $F[x]$ is the set of all polynomials with zero constant term.
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Polynomials over field $F$, $F[x]$}
+\begin{theorem}
+	Every ideal in $F[x]$ is a principal ideal.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+	\item $N$ be an ideal of $F[x]$, $N = \{ 0 \} \implies N = \langle 0 \rangle$
+	\item Suppose $N \ne \{ 0 \}$. There exists a polynomial of minimum degree $g(x) \in N,\ g(x) \ne 0$
+	\item Case 1 : degree of $g(x) = 0$
+	\begin{itemize}
+		\item $g(x)$ is a constant. $g(x) \in F$. And has multiplicative inverse.
+		\item ideal $N$ contains unit $g(x) \implies N = F[x] = \langle 1 \rangle$
+	\end{itemize}
+	\item Case 2 : degree of $g(x) \ge 1$
+	\begin{itemize}
+		\item  $f(x) \in N \implies f(x) = q(x)g(x) + r(x)$ where degree of $r(x)$ is strictly less than the degree of $g(x)$\\
+		\item $r(x) \ne 0$ is a contradiction since degree of $g(x)$ is not minimum in $F[x]$ as $r(x) = f(x)-q(x)g(x) \in F[x]$
+		\item $f(x) \in N \implies f(x) = q(x)g(x) \implies F[x] = \langle g(x) \rangle$ 
+	\end{itemize}
+\end{itemize}
+\end{proof}
+\end{frame}
+
+
+\begin{frame}{Ideal generated by Irreducible Polynomials}
+	$$\langle p(x) \rangle = \{ 0 \} \iff p(x) = 0 \in F[x]$$
+\begin{theorem}
+	Non-trivial ideal $\langle p(x) \rangle$ is maximal $\iff p(x)$ is irreducible over $F$
+\end{theorem}
+\begin{block}{Proof : Sufficient Part}
+\begin{itemize}
+	\item Suppose $\langle p(x) \rangle$ is maximal ideal in $F[x]$
+	\item Claim : $p(x) \notin F$
+	\begin{itemize}
+		\item $p(x) \in F \implies p(x)$ is a unit $\implies \langle p(x) \rangle = F[x]$\\
+		$\implies p(x)$ is not a proper ideal\\
+		$\implies \langle p(x) \rangle$ is not a maximal ideal
+	\end{itemize}
+	\item Suppose $p(x)$ is reducible, $p(x) = f(x)g(x)$
+	\begin{itemize}
+		\item Every maximal ideal is also prime ideal \\
+		$f(x)g(x) \in \langle p(x) \rangle \implies f(x) \in \langle p(x) \rangle$ OR $g(x) \in \langle p(x) \rangle$
+		\item $degree(f(x)) < degree(p(x)) \implies f(x) \notin \langle p(x) \rangle$
+	\end{itemize}
+	\item By contradiction, $p(x)$ is irreducible.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{ideal generated by irreducible polynomial}
+\begin{block}{Proof : Necessary Part}
+\begin{itemize}
+	\item Suppose $p(x)$ is irreducible over $F$
+	\item Suppose $\langle p(x) \rangle$ is not maximal
+	\begin{itemize}
+		\item There exists proper ideal $N$ properly containing $\langle p(x) \rangle$\\ That is, $\exists \text{ ideal } N \text{ such that } \langle p(x) \rangle \subsetneq N \subsetneq F[x]$
+	\end{itemize}
+	\item Every ideal in $F[x]$ is principal
+	\begin{itemize}
+		\item $N = \langle g(x) \rangle$ for some $g(x) \in F[x]$
+		\item $p(x) \in N \implies p(x) = q(x)g(x)$
+		\item $p(x)$ irreducible $\implies q(x)$ is of degree $0 \implies N = \langle p(x) \rangle$\\
+			since $degree(g(x)) = 0 \implies g(x) \text{ is unit } \implies \langle g(x) \rangle = F[x]$
+	\end{itemize}
+	\item By contradiction, there is no proper ideal $N$ containing $\langle p(x) \rangle$
+	\begin{itemize}
+		\item $p(x)$ is irreducible $\implies degree(p(x)) \ge 1$\\
+		$\implies \langle p(x) \rangle \ne \langle 1 \rangle = F[x]$
+		That is, $\langle p(x) \rangle $ is a proper ideal \\
+		$\implies \langle p(x) \rangle $ is a maximal ideal
+	\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Unique Factorisation in $F[x]$}
+\begin{theorem}
+\begin{itemize}
+	\item $p(x)$ an irreducible polynomial in $F[x]$.
+	\item $p(x) | r(x)s(x),\ r(x),s(x) \in F[x] \implies p(x) | r(x) \text{ OR } p(x) | s(x)$\\
+\end{itemize}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+	\item $p(x) | r(x)s(x) \implies r(x)s(x) \in \langle p(x) \rangle$ 
+	\item $\langle p(x) \rangle$ is a prime field
+	\item $r(x) \in \langle p(x) \rangle$ OR $s(x) \in \langle p(x) \rangle$
+	\item WLOG $r(x) \in \langle p(x) \implies p(x) | r(x)$
+\end{itemize}
+\end{proof}
+\begin{theorem}[Unique Factorisation]
+	Every polynomial $p(x) \in F[x]$ has unique factorisation except for order and unit.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}

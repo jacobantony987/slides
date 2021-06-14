@@ -1,0 +1,367 @@
+\documentclass{beamer}
+\usepackage{pgf,tikz}
+
+\newcommand{\subgroup}{\le}
+\newcommand{\subring}{\le}
+\newcommand{\subfield}{\le}
+\newcommand{\isomorphism}{\simeq}
+
+%Text Books : \cite{fraleigh}
+%Module 1
+%Direct products and finitely generated Abelian groups, fundamental theorem, Applications
+%Factor groups, Fundamental homomorphism theorem, normal subgroups and inner automorphisms.
+%Group action on a set, Isotropy subgroups, Applications of G- sets to counting.
+%(Part II – Sections 11, 14, 16 & 17) (25 hours)
+%Module 2
+%Isomorphism theorems, Sylow theorems , Applications of the Sylow theory.
+%(Part VII Sections 34, 36 & 37) (25 hours)
+%Module 3
+%Fermat’s and Euler Theorems, The field of quotients of an integral domain,
+%Rings of polynomials, Factorisation of polynomials over a field.
+%(Part IV – Sections 20, 21, 22 & 23) (20 hours)
+%Module 4
+%Non commutative examples, Homeomorphisms and factor rings, Prime and
+%Maximal Ideals
+%(Part V – Sections 24, 26 & 27) (20 hourStep 3 : $\psi$ is onto.
+\title{Abstract Algebra}
+\author{Module 4}
+
+\institute{Section 26 : Homomorphisms \& Factor Rings}
+
+\begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}{Ring}
+\begin{block}{Ring $\langle R,+,\cdot \rangle$}
+\begin{itemize}
+	\item Set $R$
+	\item Ring Addition, $+$
+	\begin{itemize}
+		\item Addition is associative.
+		\item Addition is commutative.
+		\item Existence of Additive Identity
+		\item Existence of Additive Inverses
+	\end{itemize}
+	\item Ring Multiplication, $\cdot$
+	\begin{itemize}
+		\item Multiplication is associative
+		\item Multiplication is distributive over Addition
+	\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Ring - Examples}
+\begin{exampleblock}{Integer Ring, $\langle \mathbb{Z},+,\times \rangle$}
+	Integers together with usual Addition and Multiplicaiton
+\end{exampleblock}
+\begin{exampleblock}{Matrix Space, $\langle M_n(R),+,\times \rangle$}
+\begin{itemize}
+	\item Ring $R$
+	\item $M_n(R) = \{ (a_{ij}) : 1 \le i,j \le n, a_{ij} \in R\}$
+	\item $A+B=C,\ c_{ij} = a_{ij}+b_{ij}$
+	\item $AB = C,\ c_{ij} = \sum_k a_{ik}b_{kj}$
+\end{itemize}
+\end{exampleblock}
+\begin{exampleblock}{Function Space, $\langle F,+,\times \rangle$}
+\begin{itemize}
+	\item $R$ Ring
+	\item $F = \{ f : R \to R \}$
+	\item $(f+g)(x) = f(x) + g(x)$
+	\item $fg(x) = f(x)g(x)$
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Ring Homomorphism}
+\begin{block}{$ \phi : R \to R' $}
+\begin{itemize}
+	\item $R,R'$ Rings
+	\item Function, $ \phi : R \to R' $
+	\item $\phi$ preserves all binary operations\\
+	Addition, $\phi(x+y) = \phi(x)+\phi(y)$\\
+	Multiplication, $\phi(xy) = \phi(x)\phi(y)$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Ring Homomorphism - Examples}
+\begin{exampleblock}{$\phi : \mathbb{Z} \to \mathbb{Z}_n,\ \phi(m) \simeq m \pmod{n}$}
+\begin{itemize}
+	\item $\mathbb{Z}_n, \mathbb{Z}$ Rings
+	\item $\phi(a+b) = \phi(a)+\phi(b)$
+	\item $\phi(ab) = \phi(a)\phi(b)$
+\end{itemize}
+\end{exampleblock}
+\begin{exampleblock}{Evaluation Homomorphism}
+\begin{itemize}
+	\item $R$ Ring
+	\item $F = \{ f : R \to R \}$
+	\item $\phi_{\alpha} : F \to R,\ \phi_{\alpha}(f) = f(\alpha), \text{ where } \alpha \in R$
+	\item $\phi_{\alpha}(f + g) = (f+g)(\alpha) = f(\alpha) + g(\alpha) = \phi_{\alpha}(f) + \phi_{\alpha}(g)$
+	\item $\phi_{\alpha}(fg) = (fg)(\alpha) = f(\alpha) g(\alpha) = \phi_{\alpha}(f) \phi_{\alpha}(g)$
+	\item $\phi_{\alpha}$ evaluate each function in $F$ at $\alpha$.
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Ring Homomorphism - Examples}
+\begin{exampleblock}{Projection Homomorphism, $\pi_i : R_1 \times R_2 \times \cdots \times R_n \to R_i$}
+\begin{itemize}
+	\item $R_1,R_2,\cdots,R_n$ Rings
+`	\begin{itemize}
+		\item $R_1 \times R_2 \times \cdots \times R_n$ Ring
+		\item $A+B = (a_1+b_1, a_2+b_2, \cdots, a_n+b_n)$
+		\item $AB = (a_1b_1, a_2b_2, \cdots, a_nb_n)$
+	\end{itemize}
+	\item Function $\pi_i : R_1 \times R_2 \times \cdots \times R_n \to R_i,\ \pi_i(A) =  a_i$\\
+		where $A=(a_1,a_2,\cdots,a_n)$ and $a_j \in R,\forall j$
+	\item Preserves Ring Addition \\
+		$\pi_i(A+B) = a_i + b_i = \pi_i(A)+\pi_i(B)$ 
+	\item Preserves Ring Multiplication\\
+		$\pi_i(AB)  = a_ib_i = \pi_i(A)\pi_i(B)$
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Properties of Ring Homomorphism}
+\begin{enumerate}
+	\item Preserves Additive Identity
+		$$\phi(0) = 0' \text{ of } R'$$
+	\item Preserves Additive Inverses
+		$$\phi(-a) = -\phi(a)$$
+	\item Preserves subRings
+		$$S \subring R \implies \phi(S) \subring R'$$
+	\item Preserves Multiplicative Identity (to its range)
+		$$\phi(1) = 1' {\color{red}\text{ of } \phi[R]}$$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Kernel of Ring Homomorphism, $\ker(\phi)$}
+\begin{definition}
+	$$\ker(\phi) = \{ a \in R : \phi(a) = 0' \}$$
+\end{definition}
+
+\begin{theorem}
+	$$\phi^{-1}(\phi(a)) = a+H = H+a \text{ where }\ker(\phi) = H $$
+\end{theorem}
+
+\begin{theorem}
+	$$\phi : R \to R' \text{ is injective } \iff \ker(\phi) = \{0\}$$
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Proof : $\phi^{-1}(\phi(a)) = a + H$}
+	$$\{ x \in R : \phi(a) = \phi(x) \} = a+H$$
+\begin{block}{Sufficient Part}
+\begin{align*}
+	x \in \phi^{-1}(\phi(a)) \implies \phi(x) & = \phi(a) \\
+	\phi(-a) + \phi(x) & = \phi(-a) + \phi(a) \\
+	\phi(-a+x) & = 0' \\
+	\implies -a+x \in \ker(\phi) \implies & x \in a + H \\
+	\implies & \phi^{-1}(\phi(a)) \subset a+H 
+\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : $\phi^{-1}(\phi(a)) = a + H$}
+\begin{block}{Necessary Part}
+\begin{align*}
+	x \in a+H & \implies x = a+y,\ y \in \ker(\phi) \\
+	\phi(a+y) = \phi(a) + \phi(y) & = \phi(a) + 0' = \phi(a)\\
+	\implies & a+y \in \phi^{-1}(\phi(a))\\
+	\implies & a+H \subset \phi^{-1}(\phi(a))
+\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : $\phi : R \to R'$ is injective $\iff \ker(\phi) = \{ 0 \}$}
+\begin{block}{Sufficient Part}
+\begin{align*}
+	\phi \text{ injective },\ \phi(0) = 0' & \implies \phi^{-1}(\phi(0)) = \{ 0 \} \\
+	& \implies \ker(\phi) = \{ 0 \} 
+\end{align*}
+\end{block}
+
+\begin{block}{Necessary Part} 
+\begin{align*}
+	\ker(\phi) = \{ 0 \},\ a \in R & \implies \phi^{-1}(\phi(a)) = a+\ker(\phi) \\
+	& \implies \phi^{-1}(\phi(a)) = \{ a \}\\
+	& \implies \phi \text{ is injective }
+\end{align*}
+\end{block}
+	Note 1 : Always $\phi(\phi^{-1}(b)) = b$, but $\phi^{-1}(\phi(b)) = b$ if $\phi$ injective\\
+	Note 2 : $a + \ker{\phi} = a + \{ 0 \} = \{a+0\} = \{a\}$ \dag\footnote{$a+\{b,c\} = \{a+b,a+c\}$}
+\end{frame}
+
+\begin{frame}{Quotient Ring}
+\begin{itemize}
+	\item $\phi : R \to R'$, then $\ker(\phi) \subring R$
+	\item $\langle R/H,+,\times \rangle$ is a ring where $H = \ker(\phi)$
+	\begin{itemize}
+		\item $R/H = \{ a+H : a \in R \}$
+		\item $(a+H) + (b+H) = (a+b) + H$
+		\item $(a+H)(b+H) = (ab)+H$
+	\end{itemize}
+	\item Canonical Homomorphism, $\gamma_H : R \to R/H,\ a \xrightarrow{\gamma_H} a+H$
+	\item Isomorphism, $\mu : R/H \to \phi[R],\ a+H \xrightarrow{\mu} \phi(a)$
+	\item Unique Isomorphism, $\mu$ such that $\phi = \mu \circ \gamma_H$
+\end{itemize}
+\begin{figure}
+\begin{tikzpicture}
+	\draw[->] (0,2) -- (4,2) node[right]{$R'$};
+	\draw[->] (0,2) -- (2,0) node[below]{$R/H$};
+	\draw[->,dotted] (2,0) -- (4,2);
+	\draw (0,2) node[left]{$R$};
+	\draw (2,2) node[above]{$\phi$};
+	\draw (1,1) node[left]{$\gamma_H$};
+	\draw (3,1) node[left]{$\mu$};
+\end{tikzpicture}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Left Coset Addition well-defined}
+\begin{itemize}
+	\item Let $\phi : R \to R'$ be ring homomorphism and $H = \ker(\phi)$
+	\item $\langle H,+_{|_H} \rangle \underset{N}{\subgroup} \langle R,+ \rangle$  since $R$ is abelian group
+	\item $a+H = H+a,\ \forall a \in R$
+\end{itemize}
+
+\begin{block}{$(a+H)+(b+H) \subset (a+b)+H$}
+	Let $a,b \in R$, Then $a+h_1 \in a+H$, and $b+h_2 \in b+H$\\
+	$(a+h_1)+(b+h_2)  = a+(h_1+b)+h_2 = a+(b+h_3)+h_2  = a+b+h_4$ \\
+	$\implies  (a+H) + (b+H) \subset (a+b) + H$
+\end{block}
+\begin{block}{$(a+b)+H \subset (a+H)+(b+H)$}
+	Let $a,b \in R,\ h \in H$. Then $a+b+h \in (a+b)+H$.\\
+	$a+b+h = (a+0)+(b+h) \in (a+H)+(b+H)$.\\
+	$\implies (a+b)+H \subset (a+H)+(b+H)$
+\end{block}
+\end{frame}
+
+\begin{frame}{Left Coset Multiplication is well-defined : $\ker(\phi)$}
+\begin{itemize}
+	\item $\ker(\phi) = H \subring R$ since $\phi : R \to R'$ is a ring homomorphism.
+\end{itemize}
+\begin{block}{$(a+H)(b+H) \subset (ab)+H$}
+	Let $c = (a+h_1)(b+h_2) = (ab + ah_2 + h_1b + h_1h_2)$ 
+ 	\begin{align*}
+		\phi(c) & = \phi(ab) + \phi(ah_2) + \phi(h_1b) + \phi(h_1h_2) \\
+			& = \phi(a)\phi(b) + \phi(a)\phi(h_2) + \phi(h_1)\phi(b) = \phi(h_1)\phi(h_2) \\
+			& = \phi(a)\phi(b) + \phi(a)0' + 0'\phi(b) + 0' \\
+			& = \phi(a)\phi(b) = \phi(ab) \\
+		\implies & (a+H)(b+H) \subset (ab)+H
+	\end{align*}
+\end{block}
+\begin{block}{$(ab)+H \subset (a+H)(b+H)$}
+	Let $c = ab+h_1$.\\
+	$\phi(c)  = \phi(ab) = \phi(a)\phi(b)  = \phi(a+H)\phi(b+H)  = \phi((a+H)(b+H))$ \\
+	$\implies (ab)+H  \subset (a+H)(b+H)$
+\end{block}
+\end{frame}
+
+\begin{frame}{Factor Ring : $\langle R/H, + , \times \rangle$ }
+\begin{itemize}
+	\item Set $R/H = \{ a + H : a \in R \}$
+	\item Addition, $(a+H)+(b+H) = (a+b) + H$ is well-defined
+	\begin{itemize}
+		\item Addition is associative, since $(a+b)+c = a+(b+c)$
+		\item Addition is commutative, since $a+b = b+a$
+		\item Existence of Additive Identity, $0 + H$
+		\item Existence of Additive Inverse of $a+H = (-a) + H$
+	\end{itemize}
+	\item Multiplication, $(a+H)(b+H) = (ab) + H$ is well-defined
+	\begin{itemize}
+		\item Multiplication is associative, since $(ab)c = a(bc)$
+		\item Multiplication is distributive, since $a(b+c) = ab+ac$
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Left Coset Multiplication is well-defined : $H \underset{ideal}{\subring} R$}
+%$$(a+H)(b+H)=ab+H \iff ah,bh \in H,\ \forall a,b \in R,\ h \in H$$
+\begin{block}{$(a+H)(b+H) = ab+H \implies ah,bh \in H$}
+\begin{align*}
+	(a+h_1)(b+h_2) \in ab+H \implies & (ab + ah_2 + bh_1 + h_1h_2) \in ab+H \\
+	\implies & ab + (ah_2+bh_1+h_1h_2) \in ab + H \\
+	\implies & ah_2+bh_1 \in H,\ \forall h_1,h_2 \in H \\
+	\implies & ah,bh \in H,\ \forall h \in H
+\end{align*}
+\end{block}
+\begin{block}{$ah,bh \in H \implies (a+H)(b+H)=ab+H$}
+\begin{align*}
+	(a+h_1)(b+h_2) =&  (ab + ah_2 + bh_1 + h_1h_2) \\
+	ah_2,bh_1,h_1h_2 \in H \implies & (a+H)(b+H) = ab + H
+\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Ideal vs Normal}
+\begin{definition}[Normal Subgroup]
+	Let $N$ be a subgroup of group $G$.\\
+	$N$ is normal subgroup of $G$, if $gN = Ng,\ \forall g \in G$
+\end{definition}
+
+\begin{definition}[Ideal]
+	Let $N$ be an additive subgroup $\langle N,+_{|_N} \rangle$ of ring $\langle R,+,\times \rangle$.\\
+	$N$ is an ideal of $R$, if $aN \subset N$ and $Nb \subset N\ \forall a,b \in R$
+\end{definition}
+\end{frame}
+
+\begin{frame}{Ideal - Example}
+\begin{exampleblock}{$n\mathbb{Z} \underset{ideal}{\subgroup} \mathbb{Z}$}
+\begin{itemize}
+	\item $\langle n\mathbb{Z},+ \rangle \subgroup \langle \mathbb{Z},+ \rangle$.
+	\begin{itemize}
+		\item $nm + ns \in n(m+s) \in n\mathbb{Z}$
+		\item Additive Identity, $0 = n0$
+		\item Additive Inverses of $nm = n(-m) = -nm$
+	\end{itemize}
+	\item $aN \subset N$ and $Nb \subset N$
+	\begin{itemize}
+		\item $s(nm) = n(ms) \in n\mathbb{Z}$ and $(nm)s = n(ms) \in n\mathbb{Z}$
+	\end{itemize}
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Factor Ring $\langle R/N,+,\times\rangle$}
+\begin{itemize}
+	\item $N \underset{ideal}{\subgroup} R$
+	\item Addition, $(a+N)+(b+N) = (a+b)+N$
+	\item Multiplication, $(a+N)(b+N) = ab + N$
+\end{itemize}
+\begin{theorem}[Cannonical Homomorphism]
+	Let $N \underset{ideal}{\subgroup} R$. Let $\gamma : R \to R/N$ given by $\gamma(x) = x+N$ is a ring homomorphism with kernel $N$.
+\end{theorem}
+\begin{theorem}[Fundamental Homomorphism]
+	Let $\phi : R \to R'$ be a ring homomorphism with kernel $N$. Then there exists a cannonical homomorphism $\gamma_N : R \to R/N$ given by $\gamma_N(x) = x+N$ and a unique ring isomorphism $\mu : R/N \to R'$ given by $\mu(x+N) = \phi(x)$. That is, $\mu \circ \gamma_N = \phi$.
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Frobeinus Homomorphism}
+\begin{definition}[Frobeinus Homomorphism]
+	Let $R$ be a commutative ring with unity and characteristic $p$.
+	$\phi_p : R \to R \text{ given by } \phi_p(a) = a^p$ is a ring homomorphism
+\end{definition}
+	\begin{exampleblock}{$\phi_7 : \mathbb{Z}_7 \to \mathbb{Z}_7,\ a \to a^p \pmod{p}$}
+	$$\phi_7(5) = \phi_7(3)+\phi_7(2) = 3+2 = 5$$
+	$$\phi_7(6) = \phi_7(3)\phi_7(2) = 3 \times 2 = 6$$
+	Frobenius Homomorphism on $\mathbb{Z}_p$ is the identity map by Fermat's Little Theorem.
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Nilradical Ideal}
+\begin{definition}[Nilradical]
+	An element $a \in R$ is nilradical if $a^n = 0$ for some positive integer $n$.\\
+	The set of all nilradical elements of commutative ring $R$ with an ideal is the nilradical of $R$.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}

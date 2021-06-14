@@ -1,0 +1,241 @@
+\documentclass{beamer}
+
+\usepackage{caption,subcaption}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes.geometric,arrows,arrows.meta,decorations.pathreplacing,bending}
+
+\title{Differential Geometry}
+\author{Module II}
+\institute{Chapter 7 : Geodesics \\ \textit{Straight Lines on an $n$-Surface} }
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Vector Field along Parameterised Curve}
+	\begin{block}{Vector Field(Ref : Chapter 2)}
+\begin{itemize}
+	\item $\mathbf{X}(p) = (p,X(p))$ where $X : U \to \mathbb{R}^{n+1},\ U \underset{\text{open}}{\subset} \mathbb{R}^{n+1}$
+	\item For each point $p$ in $U$, a unique vector $X(p)$ is assigned
+\end{itemize}
+\end{block}
+\begin{block}{Vector Field along Curve $\alpha$}
+\begin{itemize}
+	\item $\mathbf{X}(\alpha(t)) = (\alpha(t),X(t))$ where $\alpha : I \to U$, $X : I \to \mathbb{R}^{n+1}$, $I \underset{\text{open}}{\subset} \mathbb{R}$ and $U \underset{\text{open}}{\subset} \mathbb{R}^{n+1}$
+	\item For each point on the curve $\alpha$, vectors are assigned depending on the value of the parameter $t$ 
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Function along Parameterised Curve}
+\begin{definition}[Function along $\alpha$]
+	Let $\alpha : I \to \mathbb{R}^{n+1}$.
+	Function along $\alpha$ is a real-valued function defined on the same parameter interval $I$. That is, $f : I \to \mathbb{R}$
+\end{definition}
+	$$\mathbf{X}(\alpha(t)) = (\alpha(t),X(t))$$
+	\textbf{Remark} : For vector field $\mathbf{X}$ along $\alpha$, the component functions $X_j$ of the associated function $X$ are functions along $\alpha$.
+	$$\mathbf{X}(\alpha(t)) = (\alpha(t),X_1(t),X_2(t),\cdots,X_{n+1}(t))$$
+\end{frame}
+
+\begin{frame}{Velocity and Speed of a Curve}
+	Let $\alpha : I \to \mathbb{R}^{n+1}$ be a parametrised curve.
+\begin{definition}[Velocity]
+	Velocity of $\alpha$ is a { \color{teal} vector field $\dot{\boldsymbol{\alpha}}$ along $\alpha$} defined by $$\dot{\boldsymbol{\alpha}}(t) = \left(\alpha(t), \dfrac{d}{dt}\alpha(t)\right)$$
+\end{definition}
+\begin{definition}[Speed]
+	Speed of $\alpha$ is a { \color{teal} function $\|\dot{\alpha}\|$ along $\alpha$} defined by $$\|\dot{\alpha}\| : I \to \mathbb{R},\ \|\dot{\alpha}\|(t) = \| \dot{\alpha}(t)\|$$
+\end{definition}
+	\begin{exampleblock}{Example : $\alpha(t) = (t,t^2)$ (Ref : Exercise 7.1a)} 
+	Velocity, $\dot{\boldsymbol{\alpha}}(t) = (t,t^2,1,2t),\ \forall t \in I$\\
+	Speed, $\|\dot{\alpha}\|(t) = \| (1,2t) \| = \sqrt{1+4t^2},\ \forall t \in I$
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Acceleration of a Curve}
+\begin{definition}[Acceleration]
+	Acceleration of $\alpha$ is { \color{teal}the vector field $\ddot{\boldsymbol{\alpha}}(t)$ along $\alpha$} is defined by $$\ddot{\boldsymbol{\alpha}}(t) = \left( \alpha(t), \dfrac{d^2}{dt^2} \alpha(t) \right) $$
+\end{definition}
+	Example : Acceleration of the parametrised curve, $\alpha$\\
+	$\alpha : I \to \mathbb{R}^2,\ \alpha(t) = (t,t^2)$ is $\ddot{\boldsymbol{\alpha}}(t) = (t,t^2,0,2)$
+\end{frame}
+
+\begin{frame}{Differentiation along a Curve}
+\begin{definition}[Differentiating Vector Field along Curve]
+	Let $\mathbf{X}(\alpha(t))$ be a vector field along $\alpha$.\\
+	The derivative of {\color{teal}$\mathbf{X}$ along $\alpha$} is {\color{magenta}$\dot{\mathbf{X}}$ along $\alpha$} ( or simply $\dot{\mathbf{X}}$),
+	$$\dot{\mathbf{X}}(\alpha(t)) = \left( \alpha(t),\dfrac{d}{dt}X(t)\right)$$
+\end{definition}
+\end{frame}
+
+\begin{frame}{Properties of Differentiation}
+\begin{enumerate}
+	\item $\dot{\mathbf{X}+\mathbf{Y}} = \dot{\mathbf{X}} + \dot{\mathbf{Y}}$
+	$$\dfrac{d}{dt} (X(t)+Y(t)) = \dfrac{d}{dt}X(t) + \dfrac{d}{dt}Y(t)$$
+
+	\item $\dot{f\mathbf{X}} = f'\mathbf{X} + f\dot{\mathbf{X}}$
+	$$\dfrac{d}{dt}f(t)X(t) = \left( \dfrac{d}{dt}f(t) \right) X(t) + f(t) \left( \dfrac{d}{dt}X(t) \right)$$
+\item $(\mathbf{X} \cdot \mathbf{Y})' = \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}$
+	$$\dfrac{d}{dt}X_1(t)Y_1(t) = \left( \dfrac{d}{dt}X_1(t) \right) Y_1(t) + X_1(t) \left( \dfrac{d}{dt} Y_1(t) \right)$$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Geodesic}
+\begin{definition}[Geodesic]
+	A geodesic is an $n$-surface $S$ is a parametrised curve $\alpha : I \to S$ with acceleration orthogonal to $S$. 
+\end{definition}
+\begin{itemize}
+	\item Acceleration of geodesics is orthogonal to the Surface $S$.
+$$\ddot{\boldsymbol{\alpha}}(t) \in S_{\alpha(t)}^\perp,\ \forall t \in I$$
+	\item Velocity of geodesics is tangent to the Surface $S$.
+	$$\dot{\boldsymbol{\alpha}}(t) \in S_{\alpha(t)},\ \forall t \in I$$
+	\item Geodesics have constant speed, since $\dot{\alpha}(t) \cdot \ddot{\alpha}(t) = 0$.
+		$$\left( \dot{\alpha}(t) \cdot \dot{\alpha}(t) \right)' = \ddot{\alpha}(t) \cdot \dot{\alpha}(t) + \dot{\alpha}(t) \cdot \ddot{\alpha}(t) = 2 \dot{\alpha}(t) \cdot \ddot{\alpha}(t) $$
+		$$\dfrac{d}{dt} \| \dot{\alpha}(t) \|^2 = 2 \dfrac{d}{dt} \dot{\alpha}(t) \cdot \ddot{\alpha}(t) = 0$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Maximal Geodesic}
+\begin{theorem}[Maximal Geodesic]
+\begin{itemize}
+	\item $n$-surface $S$
+	\item $p \in S$ (through a point $p$)
+	\item $\mathbf{v} = (p,v) \in S_p$ ( with constant/starting velocity $v$)
+	\item $\exists \text{ open interval } I$ containing $0$ and
+	\item $\exists \text{ unique, maximal geodesic } \alpha : I \to S$
+	\begin{itemize}
+		\item $\alpha(0) = p \in S$
+		\item $\dot{\alpha}(0) = \mathbf{v} = (p,v) \in S_p$ and
+		\item $\alpha$ is maximal (and unique)\\
+			If there is another geodesic $\beta : \tilde{I} \to S$ with $\beta(0) = p$ and $\dot{\beta}(0) = \mathbf{v}$, then $\tilde{I} \subset I$ and $\beta(t) = \alpha(t),\ \forall t \in \tilde{I}$
+	\end{itemize}
+\end{itemize}
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+\begin{block}{Step 1 : Conditions for Geodesic}
+\begin{itemize}
+	\item $n$-surface $S$, $S = f^{-1}(c),\ \text{smooth }f : U \to \mathbb{R},\ U \underset{\text{open}}{\subset} \mathbb{R}^{n+1}$
+		and $\nabla f(p) \ne 0,\ p \in S$
+	\item WLOG $\nabla f(p) \ne 0,\ \forall p \in U$\\
+		If not, restrict $U$ to such an open set containing $S$
+	\item Vector Field $\mathbf{N}$ on $U$ ( $\mathbf{N}$ restricted to $S$ is an orientation)\\
+		$\mathbf{N}(p) = (p,N(p))$, where $N(p) = \dfrac{\nabla f(p)}{\|\nabla f(p)\|},\ \forall p \in U$ \\
+		$\mathbf{N}$ is well-defined since $U$ is open and $\| \nabla f(p) \| \ne 0$
+	\item $S_p^\perp$ is one-dimensional and $\mathbf{N}(p) \in S_p^\perp,\ \mathbf{N}(p) \ne 0,\ \forall p \in S$\\
+		Thus, $\ddot{\boldsymbol{\alpha}}$ is a scalar multiple of $\mathbf{N}$
+
+	\item Parametrised Curve $\alpha : I \to S$ is geodesics if and only if
+		$\ddot{\boldsymbol{\alpha}}(t) = g(t)\mathbf{N}(\alpha(t))$ where $g : I \to \mathbb{R}$ (scalar depends on $t$)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+	\begin{block}{Step 2 : $\alpha$ geodesic $\iff \ddot{\boldsymbol{\alpha}} + { \color{teal}(\dot{\boldsymbol{\alpha}} \cdot \dot{\mathbf{N} \circ \alpha})}(\mathbf{N} \circ \alpha) = 0$}
+\begin{align*}
+	\ddot{\boldsymbol{\alpha}} & = g(\mathbf{N} \circ \alpha) \\
+	\ddot{\boldsymbol{\alpha}} \cdot \mathbf{N}\circ \alpha & = g(\mathbf{N} \circ \alpha) \cdot (\mathbf{N} \circ \alpha) = g
+\end{align*}
+		We have, $(\dot{\boldsymbol{\alpha}} \cdot \mathbf{N}\circ \alpha)' = \ddot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha + \dot{\boldsymbol{\alpha}} \cdot \dot{\mathbf{N} \circ \alpha}$ (by property 3)\\
+	\begin{equation}
+		\implies \ddot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha = (\dot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha)' - \dot{\boldsymbol{\alpha}} \cdot \dot{\mathbf{N} \circ \alpha}
+	\end{equation}
+	\begin{align*}
+		(1) \implies g & = \ddot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha \\
+		& = (\dot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha)' - \dot{\boldsymbol{\alpha}} \cdot \dot{\mathbf{N} \circ \alpha}\\
+		& = - \dot{\boldsymbol{\alpha}} \cdot \dot{\mathbf{N} \circ \alpha}, \text{ since } \dot{\boldsymbol{\alpha}} \perp \mathbf{N}\circ \alpha
+	\end{align*}
+	\begin{equation}
+		\ddot{\boldsymbol{\alpha}} + { \color{teal}(\dot{\boldsymbol{\alpha}} \cdot \dot{\mathbf{N} \circ \alpha})}(\mathbf{N} \circ \alpha) = 0
+	\end{equation}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+\begin{block}{Step 3 : Existence and Uniqueness of $\alpha$}
+\begin{align}
+	\alpha(t) & = (x_1(t), x_2(t), \cdots, x_{n+1}(t)) \\
+	\ddot{\boldsymbol{\alpha}}(t) & = \left( \alpha(t),\dfrac{d^2}{dt^2} \alpha(t) \right) \nonumber\\
+	& = \left( {\color{teal}x_1(t),\cdots,x_{n+1}(t)}, {\color{magenta}\dfrac{d^2}{dt^2}x_1(t),\cdots,\dfrac{d^2}{dt^2}x_{n+1}(t)} \right)\\
+	\mathbf{N} \circ \alpha(t) & = \left( \alpha(t), N(\alpha(t)) \right) \nonumber\\
+	& = \left(\alpha(t),{\color{magenta}N_1(\alpha(t)),N_2(\alpha(t)),\cdots,N_{n+1}(\alpha(t))} \right) \\
+	\dot{\mathbf{N}\circ\alpha}(t) & = \left( \alpha(t),\dfrac{d}{dt}N \circ \alpha(t) \right) \nonumber\\
+	& = \left( \alpha(t), \dfrac{d}{dt}N_1(\alpha(t)),\dfrac{d}{dt}N_2(\alpha(t)),\cdots,\dfrac{d}{dt}N_{n+1}(\alpha(t)) \right)
+\end{align}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+\begin{align}
+	\dfrac{d}{dt}N_1(\alpha(t)) = & \dfrac{\partial}{\partial x_1}N_1(x_1,x_2,\cdots,x_{n+1}) \dfrac{d}{dt}x_1(t) \nonumber\\
+	& + \dfrac{\partial}{\partial x_2}N_1(x_1,x_2,\cdots,x_{n+1}) \dfrac{d}{dt}x_2(t) \nonumber\\
+	& \cdots \nonumber \\
+	& + \dfrac{\partial}{\partial x_{n+1}}N_1(x_1,x_2,\cdots,x_{n+1}) \dfrac{d}{dt}x_{n+1}(t) \\
+	\dfrac{d}{dt}N_1(\alpha(t)) = &  \sum_{k = 1}^{n+1} \dfrac{\partial}{\partial x_k} N_1(x_1,x_2,\cdots,x_{n+1}) \dfrac{d}{dt}x_k(t) 
+\end{align}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+\begin{align}
+	\dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)} = & \dfrac{d}{dt}x_1(t)\ \dfrac{d}{dt}N_1(\alpha(t)) + \dfrac{d}{dt}x_2(t)\ \dfrac{d}{dt}N_2(\alpha(t)) + \nonumber \\
+	& \cdots + \dfrac{d}{dt}x_{n+1}(t)\ \dfrac{d}{dt}N_{n+1}(\alpha(t)) \\
+	= &  \sum_{j=1}^{n+1} \dfrac{d}{dt}x_j(t)\ \sum_{k = 1}^{n+1} \dfrac{\partial}{\partial x_k} N_j(x_1,x_2,\cdots,x_{n+1}) \dfrac{d}{dt}x_k(t) \nonumber \\
+	= & \sum_{j,k=1}^{n+1} \dfrac{\partial N_j}{\partial x_k}\ \dfrac{dx_k}{dt}\ \dfrac{dx_j}{dt} 
+\end{align}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+	$$\ddot{\boldsymbol{\alpha}} + (\dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N}\circ \alpha)})(\mathbf{N} \circ \alpha)  = 0 $$
+Equating components to zero, we get the following system  of second order differential equations
+\begin{align}
+	\dfrac{d^2}{dt^2}x_1(t) + N_1(\alpha(t)) \sum_{j,k = 1}^{n+1} \dfrac{\partial N_j}{\partial x_k}\ \dfrac{dx_k}{dt}\ \dfrac{dx_j}{dt} & = 0  \nonumber \\
+	\dfrac{d^2}{dt^2}x_2(t) + N_2(\alpha(t)) \sum_{j,k = 1}^{n+1} \dfrac{\partial N_j}{\partial x_k}\ \dfrac{dx_k}{dt}\ \dfrac{dx_j}{dt} & = 0   \\
+	\cdots & = 0 \nonumber \\
+	\dfrac{d^2}{dt^2}x_{n+1}(t) + N_{n+1}(\alpha(t)) \sum_{j,k = 1}^{n+1} \dfrac{\partial N_j}{\partial x_k}\ \dfrac{dx_k}{dt}\ \dfrac{dx_j}{dt} & = 0  \nonumber 
+\end{align}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+	By existence theorem\ddag\footnote{The proof of existence theroems of differential equations is not required} for solution of such equations,
+\begin{itemize}
+	\item There exists an open interval $I$ containing $0$
+	\item There exists solution $\beta : I \to U$ with $\beta_1(0) = p$, $\dot{\beta}_1(0)=(p,v)$ and
+	\item If there exists another solution $\tilde{\beta} : \tilde{I} \to U$ with $\tilde{\beta}(0) = p$,\ $\dot{\tilde{\beta}}(0) = (p,v)$ then $\beta(t) = \tilde{\beta}(t),\ \forall t \in I \cap \tilde{I}$
+\end{itemize}
+\begin{block}{Maximal, Unique Solution}
+\begin{itemize}
+	\item Suppose there exists solutions $\beta_1,\beta_2,\cdots,\beta_k$
+	\item $I = I_1 \cup I_2 \cup \cdots \cup I_k $
+	\item $\alpha : I \to U$ defined by $\alpha(t) = \beta_j(t),\ t \in I_j$
+	\item Then $\alpha$ is maximal (and unique) geodesic on $S$ through $p$ with initial velocity $v$ {\color{red} if it is a curve on $S$}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Proof : Maximal Geodesic}
+\begin{block}{Step 4 : $\alpha$ is a curve on $S$}
+\begin{align*}
+	(\dot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha)' & = \ddot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha + \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)} \\
+	& = \left[ \ddot{\boldsymbol{\alpha}} + (\dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N}\circ \alpha)})(\mathbf{N} \circ \alpha) \right] \cdot (\mathbf{N} \circ \alpha) \\
+	& = \mathbf{0} . (\mathbf{N} \circ \alpha)  = 0 \\
+	\implies (\dot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha) & = \text{constant} 
+\end{align*}
+	$$(\dot{\boldsymbol{\alpha}} \cdot \mathbf{N} \circ \alpha)(0) = \mathbf{v} \cdot \mathbf{N}(p)  = 0, \text{ since } \mathbf{v} \in S_p,\ \mathbf{N}(p) \in S_p^\perp$$
+\begin{align*}
+	(f \circ \alpha)'(t)  & = \nabla f(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = \|\nabla f(\alpha(t)) \|{\color{teal} \mathbf{N}(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t)} = 0\\
+	\implies & f \circ \alpha  = \text{ constant }
+\end{align*}
+	But, $f(\alpha(0)) = f(p) = c$, since $p \in S = f^{-1}(c)$\\
+	Thus, $f \circ \alpha(t) = c \implies \alpha(t) \subset S = f^{-1}(c),\ \forall t \in I$
+\end{block}
+\end{frame}
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}
