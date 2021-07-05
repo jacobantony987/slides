@@ -1,0 +1,93 @@
+\documentclass{beamer}
+
+\usepackage{caption,subcaption}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes.geometric,arrows,arrows.meta,decorations.pathreplacing,bending}
+
+\newcommand{\subfield}{\underset{\text{field}}{\le}}
+\newcommand{\ideal}[1]{\langle #1 \rangle}
+
+\title{Advanced Abstract Algebra}
+\author{Module I}
+\institute{Section 29 : Extension Fields}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+
+\begin{frame}{Contents}
+\tableofcontents
+\end{frame}
+
+\section{Basic Goal}
+\begin{frame}{Basic Goal - Kronecker's Theorem}
+	\begin{itemize}
+		\item Field $F$
+		\item Non-constant Polynomial, $f(x) \in F[x]$
+		\item Existence of field extension $E$ such that
+		\begin{itemize}
+			\item $F \subfield E$
+			\item $\exists \alpha \in E,\ f(\alpha) = 0$
+		\end{itemize}
+	\end{itemize}
+\begin{proof}
+\begin{itemize}
+	\item $p(x)$ irreducible factor of $f(x)$
+	\item $\ideal{p(x)}$ is maximal ideal
+	\item $E = F[x]/\ideal{p(x)}$
+	\item $\psi : F \to E,\ \psi(a) = a+\ideal{p(x)} \implies F \simeq \psi[F] \subfield E$
+	\item $\alpha = x + \ideal{p(x)} \implies p(\alpha) = \ideal{p(x)}$ \dag\footnote{$0+\ideal{p(x)}$ is the additive identity of $F[x]/\ideal{p(x)}$}
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\section{Degree of Algebraic Numbers over a Field}
+\begin{frame}{Algebraic Number and its Degree}
+\begin{description}
+	\item[algebraic over $F$] $\alpha \in E$ is algebraic over $F$ if there exists $f(x) \in F[x]$ such that $f(\alpha) = 0$ \\
+		{\color{blue}ex. $\pi \in \mathbb{C}$ is algebraic over $\mathbb{R}$, $\because x-\pi \in \mathbb{R}[x]$}
+	\item[algebraic number] A complex number $\alpha \in \mathbb{C}$ is an algebraic number if there exists $f(x) \in \mathbb{Q}$ such that $f(\alpha) = 0$\\
+		{\color{blue}ex. $\sqrt{-1} \in \mathbb{C}$ is algebraic number, $\because x^2+1 \in \mathbb{Q}[x]$}
+	\item[transcendental] = not algebraic \\
+		{\color{blue}ex. $\pi \in \mathbb{C}$ is transcendental over $\mathbb{Q}$}
+	\item[$irr(\alpha,F)$] is the \textbf{unique} monic, irreducible polynomial $p(x) \in F[x]$ such that $p(\alpha) = 0$\\
+		{ \color{blue} ex. $irr(\sqrt{3},\mathbb{Q}) = x^2-3$ }
+	\item[$deg(\alpha,F)$] is the degree of the monic, irreducible polynomial $p(x) \in F[x]$ such that $p(\alpha) = 0$\\
+		{\color{blue} ex. $deg(\sqrt{3},\mathbb{Q}) = 2$ }
+\end{description}
+\end{frame}
+
+\begin{frame}{Uniqueness of Irreducible Polynomial $irr(\alpha,F)$}
+\begin{itemize}
+	\item Existence by Kronecker's Theorem
+	\item $\phi_\alpha : F[x] \to E$ has $\ker(\phi_\alpha) = \ideal{p(x)}$ for some $p(x) \in F[x]$
+	\item $f(x) \in \ker(\phi_\alpha) \implies p(x)|f(x)$
+	\item $p(x)$ is irreducible over $F$ since $E$ has no zero divisors
+	\begin{itemize}
+		\item $p(x) = r(x)s(x) \implies p(\alpha) = r(\alpha)s(\alpha) = 0$
+		\item $r(\alpha) = 0$ OR $s(\alpha) = 0$ which is not possible
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Simple Extension}
+\begin{frame}{Simple Extension}
+\begin{itemize}
+	\item There exists field $E$ containing $F$ and $\alpha$ (Kronecker)
+	\item $F(\alpha)$ is the smallest subfield of $E$ containing both $F$ and $\alpha$.\\
+		(hint : $F(\alpha) = \phi_\alpha\left[F[x]\right]$ where $\phi_\alpha : F[x] \to E$)
+	\item $irr(\alpha,F) = a_0 + a_1x + \dots + a_{n-1}x^{n-1} + x^n$
+	\item $\beta \in F(\alpha) \implies \beta = b_0 + b_1\alpha + \dots + b_{n-1}\alpha^{n-1}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}
