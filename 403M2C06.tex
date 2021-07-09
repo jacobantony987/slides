@@ -59,15 +59,16 @@
 	\item Level Sets $g^{-1}(c)$ are $n$-planes parallel to $v^\perp$
 	\item By Lagrange multiplier theorem, the restriction of $g$ to $n$-surface $S$ attains maximum and minimum at $p,q$
 	\begin{itemize}
-		\item $(p,v) = \nabla g(p) = \lambda \nabla f(p) = \lambda \|\nabla f(p) \|\mathbf{N}(p) = (p,\pm v)$
-		\item $(q,v) = \nabla g(q) = \lambda \nabla f(q) = \lambda \|\nabla f(q) \|\mathbf{N}(q) = (q,\pm v)$
+		\item $(p,v) = \nabla g(p) = \lambda \nabla f(p) = \lambda \|\nabla f(p) \|\mathbf{N}(p)$
+		\item $(q,-v) = \nabla g(q) = \lambda \nabla f(q) = \lambda \|\nabla f(q) \|\mathbf{N}(q)$\\
+		$\implies N(p) = \pm v$ and $N(q) = \pm v$
 	\end{itemize}
 	\item By intermediate value theorem, if there exists a continuous function $\alpha : [0,1] \to \mathbb{R}^{n+1}$ such that
 	\begin{itemize}
 		\item $\alpha(0) = p$, $\alpha(1) = q$, $\dot{\alpha}(0) = (p,v)$, $\dot{\alpha}(1) = (q,v)$ 
 		\item $\alpha(t) \notin S,\ 0 < t < 1$
 	\end{itemize}
-	then $N(p) \ne N(q)$
+		then $N(p) \ne N(q) \implies N(p) = v \text{ OR } N(q) = v$
 \end{itemize}
 \end{block}
 \end{frame}
@@ -78,10 +79,10 @@
 	\item $\exists S_1$ such that $S \subset S_1$ since $S$ is bounded(compact)
 	\item $0 < x < y < 1$
 	\item $\alpha_1 : [0,x] \to \mathbb{R}^{n+1},\ \alpha_1(t) = p+tv$
-	\item $\alpha_2 : [y,1] \to \mathbb{R}^{n+1},\ \alpha_1(t) = q+(t-1)v$
+	\item $\alpha_2 : [y,1] \to \mathbb{R}^{n+1},\ \alpha_2(t) = q+(t-1)v$
 	\item $\alpha_3 : [x,y] \to S_1$ such that
 	\begin{itemize}
-		\item $\alpha_3(x) = \alpha_1(x) = p+xt$
+		\item $\alpha_3(x) = \alpha_1(x) = p+xv$
 		\item $\alpha_3(y) = \alpha_2(y) = q+(y-1)v$
 	\end{itemize}
 \item $$\alpha(t) = \begin{cases} \alpha_1(t) & t \in [0,x)\\ \alpha_3(t) & t \in [x,y] \\ \alpha_2(t) & t \in (y,1] \end{cases}$$
@@ -138,12 +139,12 @@
 \begin{itemize}
 	\item $n$-Surface $S = f^{-1}(c) \implies f(p) = c,\ \forall p \in S$
 	\item $f \circ \alpha (0) = c$ and $f \circ \alpha (1) = c$
-	\item $(f \circ \alpha)'(0) = v$ and $(f \circ \alpha)'(1) = v$
+	\item $\dot{\alpha}(0) = v$ and $\dot{\alpha}(1) = v$
 %		$$(f \circ \alpha)' (0) = \frac{d}{dt}(p+tv) = v$$
 %		$$(f \circ \alpha)'(1) = \frac{d}{dt}(q+(t-1)v) =  v$$
 	\item {\color{blue}$(f \circ \alpha)'(t) = \nabla f(\alpha(t)) \cdot \dot{\alpha}(t)$} (by Chain Rule)\\
-	$(f \circ \alpha)(0) = \|\nabla f(p)\| \mathbf{N}(p) \cdot (p,v) = \| \nabla f(p) \| N(p) \cdot v$\\
-	$(f \circ \alpha)(1) = \|\nabla f(q)\| \mathbf{N}(q) \cdot (q,v) = \| \nabla f(q) \| N(q) \cdot v$
+	$(f \circ \alpha)'(0) = \|\nabla f(p)\| \mathbf{N}(p) \cdot (p,v) = \| \nabla f(p) \| N(p) \cdot v$\\
+	$(f \circ \alpha)'(1) = \|\nabla f(q)\| \mathbf{N}(q) \cdot (q,v) = \| \nabla f(q) \| N(q) \cdot v$
 \item Suppose $N(p) = N(q)$\\
 	$\implies (f \circ \alpha)'(0)$ and $(f \circ \alpha)'(1) $ are of the same sign
 	\item Case 1 : $f \circ \alpha$ is increasing at both $0$ and $1$
