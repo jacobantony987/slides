@@ -1,0 +1,102 @@
+\documentclass{beamer}
+
+\newcommand{\isomorphism}{\simeq}
+
+\title{Graph Theory}
+\author{Module 1}
+\institute{Section 4 : Degree of Vertices}
+
+\begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}
+\frametitle{Degree of a Vertex}
+\begin{definition}[Degree]
+	The degree of a vertex $v$ of $G$, $\deg_G(v)$ is the number of edge incident on it except for the loops at $v$, which are counted twice.
+\end{definition}
+
+\begin{description}
+	\item[$\delta(G)$] minimum of the degrees of vertices of graph $G$.
+	\item[$\Delta(G)$] maximum of the degrees of vertices of graph $G$.
+\end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Regular Graph}
+\begin{definition}[k-regular]
+	A graph $G$ is $k$-regular for some non-negative integer $k$ if every vertex of $G$ has degree $k$.
+\end{definition}
+
+\begin{definition}[regular]
+	A graph $G$ is regular if it is $k$-regular for some non-negative\\ integer $k$.
+\end{definition}
+
+\begin{definition}[cubic]
+	A $3$-regular graph is called a cubic graph.
+\end{definition}
+
+\begin{definition}[1-factor]
+	A spanning, 1-regular subgraph of graph $G$ is called a $1$ factor or\\ a perfect matching of $G$.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\frametitle{Degree Sequence}
+\begin{description}
+	\item[isolated vertex] is a vertex with degree $0$.
+	\item[pendent vertex] is a vertex with degree $1$.
+	\item[pendent edge] is an edge incident with a pendent vertex.
+\end{description}
+\begin{definition}[degree sequence]
+	A finite sequence of degrees of vertices of $G$ which is either in nonincreasing or in nondecreasing order is called a degree sequence.
+\end{definition}
+
+\begin{definition}[graphical sequence]
+	A finite sequence $d : d_1,d_2,\dots,d_n$ is graphical if there exists a simple graph with degree sequence $d$.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\frametitle{First Theorem}
+\begin{theorem}[Euler]
+	The sum of degrees of  vertices of a graph is equal to twice the number of its edges.
+	$$ \sum_{i = 1}^n d_i = 2m $$
+\end{theorem}
+
+\begin{corollary}
+	The number of odd vertices is even.
+\end{corollary}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercises 1}
+	If $G,H$ are isomorphic, then each pair of corresponding vertices of $G,H$ have same degree.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercises 2}
+	Let $d : d_1,d_2,\dots,d_n$ be a degree sequence of a graph $G$ and $r$ be a positive integer. Then $\sum_{i = 1}^n d_i^r$ is even.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercises 3}
+	For every sequence $d : d_1,d_2,\dots,d_n$ with $\sum d_i$ even, there exists a (not necessarily simple) graph with degree sequence $d$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercises 4}
+	In a group of $n$ persons ($n \ge 2$), there are at least two with the same number of friends.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercises 5}
+	Every vertex of a graph $G$ has degree either $k$ or $k+1$, then the number of vertices of degree $k$ is $(k+1)n-2m$.
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}

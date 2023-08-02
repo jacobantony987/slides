@@ -1,0 +1,94 @@
+\documentclass{beamer}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{caption,subcaption}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes.geometric,arrows,arrows.meta,decorations.pathreplacing,bending}
+
+\title{Real Analysis}
+\author{Module II}
+\institute{Section 6.15 \\ Properties of Riemann Stieltjes Integral}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{6.15(a) Linearity}
+	\begin{block}{$f_1+f_2$}
+		\[ f_1,f_2 \in \mathscr{R}(\alpha) \implies f_1+f_2 \in \mathscr{R}(\alpha) \]
+	\end{block}
+	\begin{block}{$cf$}
+		\[ f \in \mathscr{R}(\alpha) \implies cf \in\mathscr{R}(\alpha) \]
+	\end{block}
+	Riemann Stieltjes integral is a linear functional from vector space $\mathscr{R}(\alpha)$ over the field $\mathbb{R}$ into $\mathbb{R}$ itself.
+\end{frame}
+
+\begin{frame}{Linearity : Proof}
+\begin{block}{Criterion for Integrability}
+	\[ f \in \mathscr{R}(\alpha) \iff \forall \varepsilon > 0,\ \exists P \in \mathscr{P}[a,b],\ U(P,f,\alpha)-L(P,f,\alpha) < \varepsilon \]
+\end{block}
+	\[ \text{Fix }\varepsilon > 0 \]
+	\[ f_1 \in \mathscr{R}(\alpha) \implies \exists P_1 \in \mathscr{P},\ U(P_1,f_1,\alpha) - L(P_1,f_1,\alpha) < \varepsilon \]
+	\[ f_2 \in \mathscr{R}(\alpha) \implies \exists P_2 \in \mathscr{P},\ U(P_2,f_2,\alpha) - L(P_2,f_2,\alpha) < \varepsilon \]
+\end{frame}
+
+\begin{frame}{Linearity : Proof}
+\begin{block}{Refinement, $P = P_1 \cup P_2$}
+	The inequalities are true for their common refinement.
+	\[ U(P,f_1,\alpha) - L(P,f_1,\alpha) < \varepsilon \]
+	\[ U(P,f_2,\alpha) - L(P,f_2,\alpha) < \varepsilon \]
+\end{block}
+\end{frame}
+\begin{frame}{Linearity : Proof}
+\begin{block}{Minimum \& Maximum $f_1+f_2$}
+	\[ \min f_1+f_2 \ge \min f_1 + \min f_2 \]
+	\[ \max f_1+f_2 \le \max f_1 + \max f_2 \]
+\end{block}
+
+\begin{align*}
+	L(P,f_1,\alpha) + L(P,f_1,\alpha) & \le L(P,f_1+f_2,\alpha)\\ 
+	& \le U(P,f_1+f_2,\alpha)\\
+	& \le U(P,f_1,\alpha) + U(P,f_2,\alpha)
+\end{align*}
+\end{frame}
+
+\begin{frame}{Linearity : Proof}
+\begin{block}{$ f \in\mathscr{R}(\alpha)$}
+	\begin{align*}
+		U(P,f_1+f_2,\alpha) - L(P,f_1+f_2,\alpha) & \le U(P,f_1,\alpha) - L(P,f_1,\alpha)\\
+		& \quad + U(P,f_2,\alpha) - L(P,f_2,\alpha) \\
+		& < 2\varepsilon
+	\end{align*}
+	Thus,
+	\[ f_1+f_2 \in \mathscr{R}(\alpha) \]
+\end{block}
+\end{frame}
+
+\begin{frame}{Linearity : Proof}
+\begin{block}{Value of Integral}
+	\[ U(P,f_1,\alpha) - \int_a^b f_1 \ d\alpha < \varepsilon \]
+	\[ U(P,f_2,\alpha) - \int_a^b f_2 \ d\alpha < \varepsilon \]
+	\begin{align*}
+		U(P,f_1+f_2,\alpha)  
+		& \le U(P,f_1,\alpha) + U(P,f_2,\alpha) \\
+		& \le \int_a^b f_1 \ d\alpha + \int_a^b f_2\ d\alpha + 2\varepsilon
+	\end{align*}
+\end{block}
+\end{frame}
+\begin{frame}{Linearity : Proof}
+	We have,
+	\[ \int_a^b (f_1+f_2)\ d\alpha \le \int_a^b f_1\ d\alpha + \int_a^b f_2\ d\alpha \]
+	Considering $-f_1,-f_2$,
+	\[ \int_a^b (-f_1-f_2)\ d\alpha \le \int_a^b -f_1\ d\alpha + \int_a^b -f_2\ d\alpha \]
+	\[ \implies \int_a^b (f_1+f_2)\ d\alpha \ge \int_a^b f_1\ d\alpha + \int_a^b f_2\ d\alpha \]
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}

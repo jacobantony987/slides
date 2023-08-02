@@ -1,0 +1,97 @@
+\documentclass{beamer}
+
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{mathrsfs,mathtools,mathdots}
+\usepackage{caption,subcaption}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes.geometric,arrows,arrows.meta,decorations.pathreplacing,bending}
+
+\title{Differential Geometry}
+\author{Module III}
+\institute{Chapter 9 : Weingarten Map}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Directional Derivatives}
+	Suppose,
+	$$ f : \mathbb{R}^{n+1} \to \mathbb{R} $$
+	$$ \boldsymbol{X}(p) = \left(p,X_1(p),X_2(p),\dots,X_{n+1}(p) \right) $$ %where $X_j(p) : \mathbb{R}^{n+1} \to \mathbb{R}$.
+\begin{itemize}
+	\item $\nabla_{\boldsymbol{v}} f$, the derivative of function $f$ with respect to $\boldsymbol{v}$
+		$$ \nabla_{\boldsymbol{v}} f = \nabla f(p) \cdot \boldsymbol{v} \text{ where } \boldsymbol{v} = (p,v)$$
+	\item $\nabla_{\boldsymbol{v}} \boldsymbol{X}$, the derivative vector field $\boldsymbol{X}$ with respect to $\boldsymbol{v}$.
+		$$ \nabla_{\boldsymbol{v}} \boldsymbol{X} = \left(p,\nabla_{\boldsymbol{v}} X_1,\nabla_{\boldsymbol{v}} X_2,\dots,\nabla_{\boldsymbol{v}} X_{n+1} \right) $$
+	\item $D_{\boldsymbol{v}} \boldsymbol{X}$, the covariant derivative of $\boldsymbol{X}$ with respect to $\boldsymbol{v}$.
+		$$ D_{\boldsymbol{v}} \boldsymbol{X} = \nabla_{\boldsymbol{v}} \boldsymbol{X} - \left( \nabla_{\boldsymbol{v}} \boldsymbol{X} \cdot \boldsymbol{N} \right) \boldsymbol{N} $$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Properties of $\nabla_{\boldsymbol{v}} f$}
+	$\nabla_{\boldsymbol{v}} f$ is a linear map. 
+	\begin{enumerate}
+		\item $\nabla_{\boldsymbol{v} + \boldsymbol{w}} f = \nabla_{\boldsymbol{v}} f + \nabla_{\boldsymbol{w}} f$.
+		\item $\nabla_{c\boldsymbol{v}} f = c \nabla_{\boldsymbol{v}} f$.
+	\end{enumerate}
+	\vfill
+	We also have,
+	\begin{enumerate}
+		\item $\nabla_{\boldsymbol{v}} (f+g) = \nabla_{\boldsymbol{v}} f + \nabla_{\boldsymbol{v}} g$.
+		\item $\nabla_{\boldsymbol{v}} (fg) = f (\nabla_{\boldsymbol{v}} g) + (\nabla_{\boldsymbol{v}} f)g$.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Properties of $\nabla_{\boldsymbol{v}} \boldsymbol{X}$ and $D_{\boldsymbol{v}} \boldsymbol{X}$}
+	Properties of derivative of $\boldsymbol{X}$ with respect to $\boldsymbol{v}$,
+	\begin{enumerate}
+		\item $\nabla_{\boldsymbol{v}} (\boldsymbol{X}+\boldsymbol{Y}) = \nabla_{\boldsymbol{v}} \boldsymbol{X} + \nabla_{\boldsymbol{v}} \boldsymbol{Y}$.
+		\item $\nabla_{\boldsymbol{v}} (f\boldsymbol{X}) = f (\nabla_{\boldsymbol{v}} \boldsymbol{X} + (\nabla_{\boldsymbol{v}} f) \boldsymbol{X}$.
+		\item $\nabla_{\boldsymbol{v}} (\boldsymbol{X} \cdot \boldsymbol{Y}) = \boldsymbol{X} \cdot \nabla_{\boldsymbol{v}} \boldsymbol{Y} + (\nabla_{\boldsymbol{v}} \boldsymbol{X}) \cdot \boldsymbol{Y}$.
+	\end{enumerate}
+	\vfill
+	Properties of covariant derivative of $\boldsymbol{X}$ with respect to $\boldsymbol{v}$,
+	\begin{enumerate}
+		\item $D_{\boldsymbol{v}} (\boldsymbol{X}+\boldsymbol{Y}) = D_{\boldsymbol{v}} \boldsymbol{X} + D_{\boldsymbol{v}} \boldsymbol{Y}$.
+		\item $D_{\boldsymbol{v}} (f\boldsymbol{X}) = f (D_{\boldsymbol{v}} \boldsymbol{X}) + (\textcolor{red}{\nabla}_{\boldsymbol{v}} f) \boldsymbol{X}$.
+		\item $D_{\boldsymbol{v}} (\boldsymbol{X} \cdot \boldsymbol{Y}) = \boldsymbol{X} \cdot D_{\boldsymbol{v}} \boldsymbol{Y} + (D_{\boldsymbol{v}} \boldsymbol{X}) \cdot \boldsymbol{Y}$.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Weingarten Map, $L_p$}
+	Weingarten map of an $n$-surface $S$ at $p$,
+	$$ L_p : S_p \to S_p,\ L_p(\boldsymbol{v}) = -\nabla_{\boldsymbol{v}} \boldsymbol{N} $$
+	\vfill
+	Practically, $-\nabla_{\boldsymbol{v}} \boldsymbol{N}(p) = -\nabla_{\boldsymbol{v}} \tilde{\boldsymbol{N}}(p)$.\\
+	\begin{itemize}
+		\item $n$-sphere of radius $r$, $L_p(\boldsymbol{v}) = \frac{1}{r} \boldsymbol{v}$.
+		%\item Hyperplane $f(p) = a \cdot p$, $L_p(\boldsymbol{v}) = $
+		%\item Circular Cylinder, $L_p(\boldsymbol{v}) = $
+	\end{itemize}
+	\vfill
+	The shape operator, $L_p$
+	\begin{itemize}
+		\item Rate of change of the unit normal at each point on $S$.
+		\item Measure of the turning of tangent space at each point on $S$.
+		\item Describes the shape of the surface $S$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Properties of Weingarten Map}
+	\begin{enumerate}
+		\item The normal component of acceleration at $p$ is the same for all parametrized curves with same velocity at $p$.
+			$$\ddot{\boldsymbol{\alpha}}(t_0) \cdot \boldsymbol{N}(p) = L_p(\boldsymbol{v}) \cdot \boldsymbol{v}$$
+		\item Weingarten Map is self adjoint.
+			$$ L_p(\boldsymbol{v}) \cdot \boldsymbol{w} = \boldsymbol{v} \cdot L_p(\boldsymbol{w}) $$
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}

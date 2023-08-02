@@ -1,0 +1,36 @@
+\documentclass{beamer}
+
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{mathrsfs,mathtools,mathdots}
+\usepackage{caption,subcaption}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes.geometric,arrows,arrows.meta,decorations.pathreplacing,bending}
+
+\title{Differential Geometry}
+\author{Module III}
+\institute{Chapter 10 : The Curvature of Plane Curves}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Curvature}
+	In $\mathbb{R}^2$,  
+	$$ \text{ Weingarten map }L_p : C_p \to C_p \text{ is }L_p(\boldsymbol{v}) = \kappa(p) \boldsymbol{v}$$
+	\vfill
+	Curvature of plane curve $C$ in $\mathbb{R}^2$ is
+	$$ \kappa : \mathbb{R}^2 \to \mathbb{R},\ \kappa(p) = L_p(\boldsymbol{v}) \cdot \boldsymbol{v}/\| \boldsymbol{v}\|^2 $$
+	\vfill
+	It turns out that, the curvature is a measure of the normal component of accelation,
+	$$ \kappa(\alpha(t)) = \frac{\ddot{\boldsymbol{\alpha}}(t) \cdot \boldsymbol{N}(\alpha(t))}{\| \dot{\boldsymbol{\alpha}}(t)\|^2} $$
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}

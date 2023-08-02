@@ -1,0 +1,44 @@
+\documentclass{beamer}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,amsthm}
+\usepackage{caption,subcaption}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{shapes.geometric,arrows,arrows.meta,decorations.pathreplacing,bending}
+
+\title{Real Analysis}
+\author{Module 3}
+\institute{Section 7.17 \\ Uniform Convergence \& Differentiation}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Uniform Convergence \& Differentiation}
+\begin{theorem}[7.17]
+	Suppose $\{f_n\}$ is a sequence of functions differentiable on $[a,b]$ and such that the sequence $\{f_n(x_0)\}$ converges for some $x_0 \in [a,b]$.\\
+	If $\{f_n'\}$ converges uniformly on $[a,b]$, then $\{f_n\}$ converges uniformly on $[a,b]$ to a function $f$ and
+	\[ f'(x) = \lim_{n \to \infty} f_n'(x),\quad \forall x \in [a,b] \]
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Uniform Convergence \& Differentiation}
+	\begin{proof}
+		Let $\varepsilon > 0$.\\
+		We have, sequence $\{f_n(x_0)\}$  converges for some $x_0 \in [a,b]$.\\
+		Choose natural number $N$ such that $\forall n,m \ge N$, 
+	\begin{align*}
+		\left| f_n(x_0) - f_m(x_0) \right| < \frac{\varepsilon}{2},\quad \text{ since every convergent sequence is Cauchy} \\
+	 	\left| f_n'(t) - f_m'(t) \right| < \frac{\varepsilon}{2(b-a)}\quad \text{ since } f_n' \text{ converges to } f \text{uniformly on } [a,b] 
+	\end{align*}
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}
