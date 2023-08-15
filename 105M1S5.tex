@@ -379,16 +379,17 @@ A self complementary graph with one pendant vertex must have at least another pe
 \end{frame}
 
 \begin{frame}
-		If $G$ is simple and $\delta(G) \ge k$, then $G$ contains a path of length at least $k$.
+\frametitle{Longest Path and Minimum Degree}
+	If $G$ is simple and $\delta(G) \ge k$, then $G$ contains a path of length at least $k$.
 \begin{itemize}
-	\item Each component of $G$ has at least $k+1$ vertices.
-	\item Apply finite mathematical induction on $\delta(G)$.
+	\item Let $G$ be a graph with $\delta(G) \ge k$.
+	\item Let $v_0,v_1,\dots,v_r$ be the longest path in $G$.
+	\item $v_r$ is at most adjacent to $v_0,v_1,\dots, v_{r-1}$.
 	\begin{itemize}
-		\item $k =1$ is trivial
-		\item Suppose graph of $\delta(G) = k-1$ has a path of length $k-1$.
-		\item Suppose $\delta(G) = k$.
-		\item Additional vertex which is  adjacent to one of the end vertices.
+		\item Otherwise $v_0,v_1,\dots,v_r,w$ is longer. (contradiction)
 	\end{itemize}
+	\item $\deg(v_r) \le r \implies k \le \delta(G) \le r$.
+	\item Longest path has length at least $k$.
 \end{itemize}
 \end{frame}
 
