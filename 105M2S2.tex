@@ -1,0 +1,51 @@
+\documentclass{beamer}
+\usepackage{pgf,tikz}
+\usetikzlibrary{positioning, decorations.markings}
+
+\newcommand{\isomorphism}{\simeq}
+\newtheorem{proposition}{Proposition}
+
+\title{Graph Theory}
+\author{Module 2}
+\institute{Section 2 : Vertex/Edge Cut}
+
+\begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\begin{frame}
+	\frametitle{Terminology}
+	\begin{itemize}
+		\item Separating Set
+		\item Vertex Cut
+		\item Cut Vertex
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Characterisations}
+\begin{itemize}
+	\item $2$-edge Cut - Both vertices come together in cycles.
+	\item Cut Vertex : $\exists u,w$ such that $v$ belongs to every $u-w$ path.
+	\item Cut Edge : $e$ does not belong to any cycle.
+	\item Cubic Graph : $\exists$ Cut Edge $\iff$  $\exists$ Cut Vertex.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\begin{itemize}
+	\item Every graph has at least two non-cut vertices.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\vspace{0.6in}
+	\hspace{3cm} {\color{blue}\Huge{Thank You}}
+\end{frame}
+\end{document}
